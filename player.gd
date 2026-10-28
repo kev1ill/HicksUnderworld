@@ -16,6 +16,7 @@ var dead := false
 var knockback := Vector2.ZERO
 var hit_this_swing: Array[Node] = []
 var facing: String = "down" #remembers last direction for idle animation
+var attack_dir := Vector2.DOWN
 
 func _ready() -> void:
 	add_to_group("player")
@@ -35,10 +36,13 @@ func _physics_process(delta: float) -> void:
 		if abs(dir.x) > abs(dir.y):
 			facing = "side"
 			sprite.flip_h = dir.x < 0
+			attack_dir = Vector2(signf(dir.x), 0.0)
 		elif dir.y < 0:
 			facing = "up"
+			attack_dir = Vector2.UP
 		else:
 			facing = "down"
+			attack_dir = Vector2.DOWN
 		sprite.play("run_" + facing)
 	else:
 		sprite.play("idle_" + facing)
@@ -49,7 +53,7 @@ func _physics_process(delta: float) -> void:
 func _attack() -> void:
 	can_attack = false
 	hit_this_swing.clear()
-	var aim := (get_global_mouse_position() - sword_pivot.global_position).angle()
+	var aim := attack_dir.angle()
 	var base := aim + PI / 2.0 #sword sprite points up
 	sword_pivot.rotation = base - swing_arc
 	sword_pivot.visible = true

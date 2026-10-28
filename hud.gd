@@ -5,6 +5,7 @@ extends CanvasLayer
 @export var empty_heart: Texture2D
 
 @onready var box: HBoxContainer = $HBoxContainer
+@onready var wave_label: Label = $WaveLabel
 
 # binds the hud to the health node
 func _bind(health: Health) -> void:
@@ -34,4 +35,10 @@ func _update(current: int, max: int) -> void:
 		
 		# add the heart to the container (healthbar)
 		box.add_child(icon)
-	pass
+		
+func show_wave(num: int) -> void:
+	wave_label.text = "Wave %d" % num
+	
+func show_message(text: String) -> void:
+	wave_label.text = text
+	

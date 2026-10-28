@@ -4,12 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://dsgx76p1cx1h3" path="res://atlas_floor-16x16.png" id="1_gaxvh"]
 [ext_resource type="Texture2D" uid="uid://d4icok0giqsxo" path="res://atlas_walls_low-16x16.png" id="2_87d1f"]
 [ext_resource type="PackedScene" uid="uid://bo8w23rn5aclf" path="res://Player.tscn" id="3_igk3i"]
-[ext_resource type="Script" uid="uid://bmfkwd7x8jh7u" path="res://player.gd" id="4_i2x58"]
 [ext_resource type="PackedScene" uid="uid://cvbqb5he7ao53" path="res://Orc.tscn" id="5_87d1f"]
 [ext_resource type="Script" uid="uid://b0sm1ojjtxo0i" path="res://hud.gd" id="6_igk3i"]
 [ext_resource type="Texture2D" uid="uid://bcur5wx068tg6" path="res://frames/ui_heart_full.png" id="7_4p0qp"]
 [ext_resource type="Texture2D" uid="uid://b2cm25gibaqtt" path="res://frames/ui_heart_half.png" id="8_8mbj2"]
 [ext_resource type="Texture2D" uid="uid://co56i25u3t7rk" path="res://frames/ui_heart_empty.png" id="9_dqayi"]
+[ext_resource type="Script" uid="uid://c0kkogxalelu2" path="res://wave_spawner.gd" id="11_dqayi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_orq0m"]
 texture = ExtResource("1_gaxvh")
@@ -179,12 +179,8 @@ tile_map_data = PackedByteArray("AAAFAP7/AAAAAAEAAAAFAP//AAAAAAEAAAAFAAAAAAAAAAE
 tile_set = SubResource("TileSet_ticvn")
 
 [node name="Player" parent="." unique_id=1753172116 instance=ExtResource("3_igk3i")]
-position = Vector2(8, 13)
-collision_layer = 2
-script = ExtResource("4_i2x58")
-
-[node name="Orc" parent="." unique_id=2088755519 instance=ExtResource("5_87d1f")]
-position = Vector2(-41, 1)
+position = Vector2(8, -9)
+swing_arc = 1.2
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=321325794]
 script = ExtResource("6_igk3i")
@@ -197,3 +193,30 @@ offset_left = 4.0
 offset_top = 4.0
 offset_right = 4.0
 offset_bottom = 4.0
+
+[node name="WaveLabel" type="Label" parent="HUD" unique_id=541030373]
+offset_left = 4.0
+offset_top = 24.0
+offset_right = 44.0
+offset_bottom = 47.0
+theme_override_font_sizes/font_size = 8
+
+[node name="SpawnPoints" type="Node2D" parent="." unique_id=1255778375]
+
+[node name="Marker2D" type="Marker2D" parent="SpawnPoints" unique_id=16040765 groups=["spawn_point"]]
+position = Vector2(73, 48)
+
+[node name="Marker2D2" type="Marker2D" parent="SpawnPoints" unique_id=1654010238 groups=["spawn_point"]]
+position = Vector2(-56, 47)
+
+[node name="Marker2D3" type="Marker2D" parent="SpawnPoints" unique_id=809983028 groups=["spawn_point"]]
+position = Vector2(72, -81)
+
+[node name="Marker2D4" type="Marker2D" parent="SpawnPoints" unique_id=1259335732 groups=["spawn_point"]]
+position = Vector2(-55, -80)
+
+[node name="WaveSpawner" type="Node" parent="." unique_id=1811715866]
+script = ExtResource("11_dqayi")
+enemy_scenes = Array[PackedScene]([ExtResource("5_87d1f")])
+wave1_size = 3
+growth_per_wave = 2

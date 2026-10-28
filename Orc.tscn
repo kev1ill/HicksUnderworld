@@ -56,7 +56,9 @@ size = Vector2(12, 10)
 
 [node name="Goblin" type="CharacterBody2D" unique_id=2088755519]
 collision_layer = 4
+collision_mask = 5
 script = ExtResource("1_5uyxp")
+speed = 30.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1124149093]
 sprite_frames = SubResource("SpriteFrames_7qjsp")

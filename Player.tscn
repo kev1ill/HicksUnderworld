@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bo8w23rn5aclf"]
 
+[ext_resource type="Script" uid="uid://bmfkwd7x8jh7u" path="res://player.gd" id="1_e80uo"]
 [ext_resource type="Texture2D" uid="uid://pklclnt7egjt" path="res://Player.png" id="1_kne1u"]
 [ext_resource type="Script" uid="uid://fbwie5iyl5bk" path="res://health.gd" id="9_wi0c6"]
 [ext_resource type="Texture2D" uid="uid://bknvsk2syb5tq" path="res://frames/weapon_regular_sword.png" id="10_hp6x6"]
@@ -296,6 +297,9 @@ size = Vector2(9, 2)
 size = Vector2(6, 13)
 
 [node name="Player" type="CharacterBody2D" unique_id=1753172116]
+collision_layer = 2
+script = ExtResource("1_e80uo")
+swing_arc = 0.8
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=956184766]
 sprite_frames = SubResource("SpriteFrames_ik31s")
