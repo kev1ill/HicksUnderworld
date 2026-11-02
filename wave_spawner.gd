@@ -8,27 +8,37 @@ signal wave_cleared(number: int)
 #fired once all waves have been cleared
 signal all_waves_cleared
 
-#holds the different scenes for the different enemies
-@export var enemy_scenes: Array[PackedScene] = []
-#amount of enemies spawned on wave 1
-@export var wave1_size: int = 4
-#amount of new enemies each wave
-@export var growth_per_wave: int = 3
-#amount of waves for this dungeon
-@export var max_waves: int = 5
-#amount of time (seconds) between each enemy spawning
+#different enemy scenes.
+@export var goblin: PackedScene 
+@export var masked_orc: PackedScene
+@export var orc_warrior: PackedScene
 @export var spawn_interval: float = 0.5
 #amount of seconds between the round ending and starting
 @export var time_between_waves: float = 5.0
 #minimum amount of pixels away from the player the enemies will spawn
 @export var min_spawn_distance: float = 80.0
 
+var waves: Array = []
 #current wave
 var wave_number := 0
 #remaining enemies
 var alive := 0 
 #true if currently spawning in enemies
 var spawning := false
+
+func _ready() -> void:
+	waves = [
+		[[goblin, 3]],                                              # 1
+		[[goblin, 5]],                                              # 2  reward
+		[[goblin, 4], [masked_orc, 1]],                             # 3  tier 2 appears
+		[[goblin, 3], [masked_orc, 3]],                             # 4
+		[[goblin, 2], [masked_orc, 3], [orc_warrior, 1]],           # 5  tier 3, big reward
+		[[goblin, 4], [masked_orc, 3], [orc_warrior, 1]],           # 6
+		[[masked_orc, 4], [orc_warrior, 2]],                        # 7  shaman slot later
+		[[goblin, 4], [masked_orc, 4], [orc_warrior, 2]],           # 8
+		[[masked_orc, 4], [orc_warrior, 3]],                        # 9
+		[[goblin, 4], [masked_orc, 4], [orc_warrior, 3]],           # 10 placeholder for the boss
+	]
 
 func start() -> void:
 	_next_wave()
@@ -37,33 +47,37 @@ func _next_wave() -> void:
 	wave_number += 1
 	wave_started.emit(wave_number)
 	
-	#wave 1 = 4 enemies, wave 2 = 7, and so on
-	var count := wave1_size + (wave_number - 1) * growth_per_wave
+	var queue: Array[PackedScene] = []
+	
+	for entry in waves[wave_number - 1]:
+		
+		var scene: PackedScene = entry[0]
+		var count: int = entry[1]
+		
+		if scene == null:
+			push_warning("WaveSpawner: wave %d has an empty enemy slot." % wave_number)
+			continue
+			
+		for _i in count:
+			queue.append(scene)
+	
+	#shuffle the list so that enemy types spawn in random order, ie not all goblins at once
+	queue.shuffle()
 	
 	spawning = true
 	
-	for i in count:
-		#Spawn an enemy	
-		_spawn_enemy()
-		#Pause this function for spawn_interval seconds without freezing the game.
+	for scene in queue:
+		_spawn_enemy(scene)
 		await get_tree().create_timer(spawn_interval).timeout
-		#If the scene was reloaded while we waited (player died), stop here.
 		if not is_inside_tree():
 			return
-		#Done creating enemies for this wave.
-		spawning = false
-		#In case every enemy is already dead, check whether the wave is over.
-		_check_cleared()
-		
-func _spawn_enemy() -> void:
-	if enemy_scenes.is_empty():
-		push_warning("Spawner has no enemies assigned")
-		return
 	
-	var scene : PackedScene = enemy_scenes.pick_random()
-	#create an enemy from enemy scenes list
-	var enemy : Node2D = scene.instantiate()
-	#instantiate the enemy
+	spawning = false
+	_check_cleared()
+		
+		
+func _spawn_enemy(scene: PackedScene) -> void:
+	var enemy: Node2D = scene.instantiate()
 	get_parent().add_child(enemy)
 	
 	#set the enemy to a set spawn point
@@ -108,7 +122,7 @@ func _check_cleared() -> void:
 	
 	#the wave is over
 	wave_cleared.emit(wave_number)
-	if wave_number >= max_waves:
+	if wave_number >= waves.size():
 		all_waves_cleared.emit()
 		return
 	

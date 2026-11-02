@@ -6,6 +6,7 @@ signal died
 
 @export var max_health: int = 6
 var current: int
+var player: CharacterBody2D = get_parent()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -19,6 +20,11 @@ func take_damage(amount: int) -> void:
 	if current == 0:
 		died.emit()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func heal(amount: int) -> bool:
+	if (current <= 0 or current == max_health):
+		return false
+	
+	current = min(amount + current, max_health)
+	changed.emit(current, max_health)
+	
+	return true

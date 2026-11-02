@@ -2,8 +2,24 @@
 
 [ext_resource type="Script" uid="uid://bmfkwd7x8jh7u" path="res://player.gd" id="1_e80uo"]
 [ext_resource type="Texture2D" uid="uid://pklclnt7egjt" path="res://Player.png" id="1_kne1u"]
+[ext_resource type="Texture2D" uid="uid://besfmqqv7ye6v" path="res://frames/weapon_rusty_sword.png" id="4_e80uo"]
 [ext_resource type="Script" uid="uid://fbwie5iyl5bk" path="res://health.gd" id="9_wi0c6"]
-[ext_resource type="Texture2D" uid="uid://bknvsk2syb5tq" path="res://frames/weapon_regular_sword.png" id="10_hp6x6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqtel"]
+atlas = ExtResource("1_kne1u")
+region = Rect2(0, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sweqy"]
+atlas = ExtResource("1_kne1u")
+region = Rect2(32, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hs0m"]
+atlas = ExtResource("1_kne1u")
+region = Rect2(64, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jxqw"]
+atlas = ExtResource("1_kne1u")
+region = Rect2(96, 288, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e80uo"]
 atlas = ExtResource("1_kne1u")
@@ -153,6 +169,23 @@ region = Rect2(160, 160, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_hqtel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sweqy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hs0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jxqw")
+}],
+"loop": 1,
+"name": &"die",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_e80uo")
 }, {
 "duration": 1.0,
@@ -294,11 +327,13 @@ animations = [{
 size = Vector2(9, 2)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ticvn"]
-size = Vector2(6, 13)
+size = Vector2(6, 14)
 
 [node name="Player" type="CharacterBody2D" unique_id=1753172116]
 collision_layer = 2
 script = ExtResource("1_e80uo")
+attack_cooldown = 0.55
+invulnerable_time = 0.5
 swing_arc = 0.8
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=956184766]
@@ -321,7 +356,7 @@ visible = false
 position = Vector2(0, -8)
 
 [node name="Sprite2D" type="Sprite2D" parent="SwordPivot" unique_id=302305221]
-texture = ExtResource("10_hp6x6")
+texture = ExtResource("4_e80uo")
 offset = Vector2(0, -8)
 
 [node name="Hitbox" type="Area2D" parent="SwordPivot" unique_id=764536253]
@@ -329,5 +364,5 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SwordPivot/Hitbox" unique_id=805347151]
-position = Vector2(0, -11.5)
+position = Vector2(0, -12)
 shape = SubResource("RectangleShape2D_ticvn")
