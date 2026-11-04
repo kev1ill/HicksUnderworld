@@ -67,6 +67,7 @@ func _on_died() -> void:
 		var drop := drop_scene.instantiate() as Node2D
 		drop.position = position
 		get_parent().add_child.call_deferred(drop)
-		
+	
+	#removes the enemy from the scene tree
 	queue_free()
 	

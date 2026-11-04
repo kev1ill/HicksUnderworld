@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://d2qihy2t4mrct"]
+
+[ext_resource type="Script" uid="uid://djn3je26piwqu" path="res://weapon_data.gd" id="1_qmotl"]
+[ext_resource type="Texture2D" uid="uid://2f6ncxy34ouh" path="res://frames/weapon_red_gem_sword.png" id="2_bbpar"]
+
+[resource]
+script = ExtResource("1_qmotl")
+display_name = "Red Gem Sword"
+texture = ExtResource("2_bbpar")
+damage = 2
+reach = 22.0
+metadata/_custom_type_script = "uid://djn3je26piwqu"

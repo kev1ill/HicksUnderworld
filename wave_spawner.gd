@@ -75,7 +75,6 @@ func _next_wave() -> void:
 	spawning = false
 	_check_cleared()
 		
-		
 func _spawn_enemy(scene: PackedScene) -> void:
 	var enemy: Node2D = scene.instantiate()
 	get_parent().add_child(enemy)
@@ -84,7 +83,7 @@ func _spawn_enemy(scene: PackedScene) -> void:
 	enemy.global_position = _pick_spawn_position()
 	alive += 1
 	
-	#calls this func when an enemy "exits" the tree
+	#calls this func when an enemy dies ("exits" the tree)
 	enemy.tree_exited.connect(_on_enemy_removed)
 	
 func _pick_spawn_position() -> Vector2:

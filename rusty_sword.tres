@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://csbp16klg2v7t"]
+
+[ext_resource type="Script" uid="uid://djn3je26piwqu" path="res://weapon_data.gd" id="1_i47rb"]
+[ext_resource type="Texture2D" uid="uid://besfmqqv7ye6v" path="res://frames/weapon_rusty_sword.png" id="2_ygm3i"]
+
+[resource]
+script = ExtResource("1_i47rb")
+display_name = "Rusty Sword"
+texture = ExtResource("2_ygm3i")
+swing_arc = 1.0
+reach = 18.0
+cooldown = 0.55
+metadata/_custom_type_script = "uid://djn3je26piwqu"

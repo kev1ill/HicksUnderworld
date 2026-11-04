@@ -12,6 +12,13 @@
 [ext_resource type="PackedScene" uid="uid://cvbqb5he7ao53" path="res://goblin.tscn" id="10_kun6q"]
 [ext_resource type="PackedScene" uid="uid://bu0h3gmys5vnw" path="res://masked_orc.tscn" id="11_uag5o"]
 [ext_resource type="PackedScene" uid="uid://bac66lxb36l6j" path="res://orc_warrior.tscn" id="12_jqckn"]
+[ext_resource type="Script" uid="uid://s541n6ntomdp" path="res://reward_manager.gd" id="13_jqckn"]
+[ext_resource type="Script" uid="uid://djn3je26piwqu" path="res://weapon_data.gd" id="14_v3ata"]
+[ext_resource type="Resource" uid="uid://csbp16klg2v7t" path="res://rusty_sword.tres" id="15_uj8uw"]
+[ext_resource type="Resource" uid="uid://db1m1uaqs43eu" path="res://regular_sword.tres" id="16_k21r5"]
+[ext_resource type="Resource" uid="uid://d2qihy2t4mrct" path="res://red_gem_sword.tres" id="17_5grt3"]
+[ext_resource type="Resource" uid="uid://b0mmxne1lcjoa" path="res://saw_sword.tres" id="18_ou4rh"]
+[ext_resource type="Resource" uid="uid://bob7dgc7757pj" path="res://anime_sword.tres" id="19_tkvb4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_orq0m"]
 texture = ExtResource("2_7wc3a")
@@ -182,8 +189,6 @@ tile_set = SubResource("TileSet_ticvn")
 
 [node name="Player" parent="." unique_id=1753172116 instance=ExtResource("4_jqckn")]
 position = Vector2(8, -9)
-attack_cooldown = 0.5
-swing_arc = 1.2
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=321325794]
 script = ExtResource("5_o2cd7")
@@ -196,6 +201,7 @@ offset_left = 4.0
 offset_top = 4.0
 offset_right = 4.0
 offset_bottom = 4.0
+metadata/_edit_use_anchors_ = true
 
 [node name="WaveLabel" type="Label" parent="HUD" unique_id=541030373]
 offset_left = 4.0
@@ -203,6 +209,16 @@ offset_top = 24.0
 offset_right = 44.0
 offset_bottom = 47.0
 theme_override_font_sizes/font_size = 8
+metadata/_edit_use_anchors_ = true
+
+[node name="BannerLabel" type="Label" parent="HUD" unique_id=1955252241]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 30.0
+offset_bottom = 53.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
 
 [node name="SpawnPoints" type="Node2D" parent="." unique_id=1255778375]
 
@@ -223,3 +239,7 @@ script = ExtResource("9_77ujo")
 goblin = ExtResource("10_kun6q")
 masked_orc = ExtResource("11_uag5o")
 orc_warrior = ExtResource("12_jqckn")
+
+[node name="RewardManager" type="Node" parent="." unique_id=1189691849]
+script = ExtResource("13_jqckn")
+weapons = Array[ExtResource("14_v3ata")]([ExtResource("15_uj8uw"), ExtResource("16_k21r5"), ExtResource("17_5grt3"), ExtResource("18_ou4rh"), ExtResource("19_tkvb4")])

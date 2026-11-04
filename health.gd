@@ -28,3 +28,10 @@ func heal(amount: int) -> bool:
 	changed.emit(current, max_health)
 	
 	return true
+	
+#raises the max health and gives the player a health boost
+func increase_max(amount: int) -> void:
+	max_health += amount
+	current += amount
+	#send updated health to the HUD
+	changed.emit(current, max_health)
