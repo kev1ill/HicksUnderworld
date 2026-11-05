@@ -3,7 +3,7 @@ extends Node
 
 const EXTERIOR := "res://scenes/exterior.tscn"
 const LOBBY := "res://scenes/lobby.tscn"
-const GAME_HALL := "res://scenes/game_hall.tscn"
+const GAME_HALL := "res://scenes/dungeon.tscn"
 ## Background music track. Drop an .ogg/.wav here and it plays automatically.
 const MUSIC_PATH := "res://audio/lobby_theme.ogg"
 

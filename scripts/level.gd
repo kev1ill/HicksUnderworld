@@ -14,6 +14,5 @@ func _ready() -> void:
 	if spawn == null:
 		spawn = $Spawns.get_child(0)
 	player.global_position = spawn.global_position
-	player.facing = spawn.get_meta("facing", 0)
 	if location_name != "":
 		hud.show_banner(location_name)
