@@ -23,7 +23,6 @@ var _music: AudioStreamPlayer
 
 
 func _ready() -> void:
-	_setup_input()
 	_setup_music()
 	var layer := CanvasLayer.new()
 	layer.layer = 100
@@ -82,41 +81,3 @@ func set_music_enabled(enabled: bool) -> void:
 	music_enabled = enabled
 	if _music != null:
 		_music.volume_db = -6.0 if enabled else -80.0
-
-
-func _setup_input() -> void:
-	var keys := {
-		"move_left": [KEY_A, KEY_LEFT],
-		"move_right": [KEY_D, KEY_RIGHT],
-		"move_up": [KEY_W, KEY_UP],
-		"move_down": [KEY_S, KEY_DOWN],
-		"interact": [KEY_E, KEY_SPACE],
-	}
-	var pad_buttons := {
-		"move_left": JOY_BUTTON_DPAD_LEFT,
-		"move_right": JOY_BUTTON_DPAD_RIGHT,
-		"move_up": JOY_BUTTON_DPAD_UP,
-		"move_down": JOY_BUTTON_DPAD_DOWN,
-		"interact": JOY_BUTTON_A,
-	}
-	var pad_axes := {
-		"move_left": [JOY_AXIS_LEFT_X, -1.0],
-		"move_right": [JOY_AXIS_LEFT_X, 1.0],
-		"move_up": [JOY_AXIS_LEFT_Y, -1.0],
-		"move_down": [JOY_AXIS_LEFT_Y, 1.0],
-	}
-	for action: String in keys:
-		if not InputMap.has_action(action):
-			InputMap.add_action(action, 0.3)
-		for key: Key in keys[action]:
-			var ev := InputEventKey.new()
-			ev.physical_keycode = key
-			InputMap.action_add_event(action, ev)
-		var jb := InputEventJoypadButton.new()
-		jb.button_index = pad_buttons[action]
-		InputMap.action_add_event(action, jb)
-		if pad_axes.has(action):
-			var jm := InputEventJoypadMotion.new()
-			jm.axis = pad_axes[action][0]
-			jm.axis_value = pad_axes[action][1]
-			InputMap.action_add_event(action, jm)

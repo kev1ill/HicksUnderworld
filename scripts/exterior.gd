@@ -6,6 +6,7 @@ extends Level
 func _ready() -> void:
 	super()
 	$DoorTrigger.body_entered.connect(_on_door_entered)
+	$World/Player.combat_enabled = false
 	if not Game.shown_controls_hint:
 		Game.shown_controls_hint = true
 		hud.show_hint("WASD / ARROWS: MOVE    E: INTERACT")

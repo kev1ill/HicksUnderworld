@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dsgx76p1cx1h3" path="res://assets/atlas_floor-16x16.png" id="2_7wc3a"]
 [ext_resource type="Texture2D" uid="uid://d4icok0giqsxo" path="res://assets/atlas_walls_low-16x16.png" id="3_uag5o"]
 [ext_resource type="PackedScene" uid="uid://bo8w23rn5aclf" path="res://scenes/player.tscn" id="4_jqckn"]
-[ext_resource type="Script" uid="uid://b0sm1ojjtxo0i" path="res://scripts/hud.gd" id="5_o2cd7"]
+[ext_resource type="Script" uid="uid://cp5rxorq201eu" path="res://scripts/dungeon_hud.gd" id="5_hh3g7"]
 [ext_resource type="Texture2D" uid="uid://bcur5wx068tg6" path="res://assets/frames/ui_heart_full.png" id="6_av2vf"]
 [ext_resource type="Texture2D" uid="uid://b2cm25gibaqtt" path="res://assets/frames/ui_heart_half.png" id="7_6gydx"]
 [ext_resource type="Texture2D" uid="uid://co56i25u3t7rk" path="res://assets/frames/ui_heart_empty.png" id="8_85cul"]
@@ -191,7 +191,7 @@ tile_set = SubResource("TileSet_ticvn")
 position = Vector2(8, -9)
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=321325794]
-script = ExtResource("5_o2cd7")
+script = ExtResource("5_hh3g7")
 full_heart = ExtResource("6_av2vf")
 half_heart = ExtResource("7_6gydx")
 empty_heart = ExtResource("8_85cul")
@@ -243,3 +243,6 @@ orc_warrior = ExtResource("12_jqckn")
 [node name="RewardManager" type="Node" parent="." unique_id=1189691849]
 script = ExtResource("13_jqckn")
 weapons = Array[ExtResource("14_v3ata")]([ExtResource("15_uj8uw"), ExtResource("16_k21r5"), ExtResource("17_5grt3"), ExtResource("18_ou4rh"), ExtResource("19_tkvb4")])
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1804579145]
+position = Vector2(8, -21)

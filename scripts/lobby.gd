@@ -13,6 +13,7 @@ func _ready() -> void:
 	$HallDoor.interacted.connect(lobby_panel.open)
 	$InfoDesk.interacted.connect(_talk_to_receptionist)
 	$ExitDoor.body_entered.connect(_on_exit)
+	$World/Player.combat_enabled = false
 	_start_idle_animations()
 
 

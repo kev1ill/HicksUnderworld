@@ -1,20 +1,20 @@
-[gd_scene load_steps=37 format=3]
+[gd_scene format=3 uid="uid://1c2bse8rs6dp"]
 
-[ext_resource type="Script" path="res://scripts/lobby.gd" id="1_r"]
-[ext_resource type="Texture2D" path="res://art/interior.png" id="2_r"]
-[ext_resource type="Texture2D" path="res://art/door_glow.png" id="3_r"]
-[ext_resource type="Texture2D" path="res://art/arrow.png" id="4_r"]
-[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="5_r"]
-[ext_resource type="Texture2D" path="res://art/receptionist.png" id="6_r"]
-[ext_resource type="Texture2D" path="res://art/desk.png" id="7_r"]
-[ext_resource type="Texture2D" path="res://art/plant.png" id="8_r"]
-[ext_resource type="Texture2D" path="res://art/sofa_down.png" id="9_r"]
-[ext_resource type="Texture2D" path="res://art/coffee_table.png" id="10_r"]
-[ext_resource type="Texture2D" path="res://art/sofa_up.png" id="11_r"]
-[ext_resource type="Texture2D" path="res://art/column.png" id="12_r"]
-[ext_resource type="Texture2D" path="res://art/bench.png" id="13_r"]
-[ext_resource type="Script" path="res://scripts/interactable.gd" id="14_r"]
-[ext_resource type="PackedScene" path="res://ui/hud.tscn" id="15_r"]
+[ext_resource type="Script" uid="uid://c5eun15hmljoj" path="res://scripts/lobby.gd" id="1_r"]
+[ext_resource type="Texture2D" uid="uid://cfb2dmbiqal4y" path="res://art/interior.png" id="2_r"]
+[ext_resource type="Texture2D" uid="uid://blqxb7lj8af8g" path="res://art/door_glow.png" id="3_r"]
+[ext_resource type="Texture2D" uid="uid://dgawrrtbjbceu" path="res://art/arrow.png" id="4_r"]
+[ext_resource type="PackedScene" uid="uid://bo8w23rn5aclf" path="res://scenes/player.tscn" id="5_r"]
+[ext_resource type="Texture2D" uid="uid://dg7s0c6eywdfd" path="res://art/receptionist.png" id="6_r"]
+[ext_resource type="Texture2D" uid="uid://cxft2hecih7yw" path="res://art/desk.png" id="7_r"]
+[ext_resource type="Texture2D" uid="uid://cx00qge07fmcd" path="res://art/plant.png" id="8_r"]
+[ext_resource type="Texture2D" uid="uid://c5p2yi6pixv84" path="res://art/sofa_down.png" id="9_r"]
+[ext_resource type="Texture2D" uid="uid://bi2e0ut16v5k0" path="res://art/coffee_table.png" id="10_r"]
+[ext_resource type="Texture2D" uid="uid://b6onbd5t4omes" path="res://art/sofa_up.png" id="11_r"]
+[ext_resource type="Texture2D" uid="uid://bu0u283x76bs2" path="res://art/column.png" id="12_r"]
+[ext_resource type="Texture2D" uid="uid://deqcj3kothc88" path="res://art/bench.png" id="13_r"]
+[ext_resource type="Script" uid="uid://f2qujhhyncdc" path="res://scripts/interactable.gd" id="14_r"]
+[ext_resource type="PackedScene" uid="uid://cy3xui7ew0kib" path="res://ui/hud.tscn" id="15_r"]
 [ext_resource type="PackedScene" path="res://ui/lobby_panel.tscn" id="16_r"]
 [ext_resource type="PackedScene" path="res://ui/pause_menu.tscn" id="17_pm"]
 
@@ -78,231 +78,237 @@ size = Vector2(60, 12)
 [sub_resource type="RectangleShape2D" id="rect_20"]
 size = Vector2(30, 6)
 
-[node name="Lobby" type="Node2D"]
+[node name="Lobby" type="Node2D" unique_id=318179866]
 script = ExtResource("1_r")
 location_name = "HICKS CENTER LOBBY"
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="." unique_id=575286236]
 texture = ExtResource("2_r")
 centered = false
 
-[node name="Decor" type="Node2D" parent="."]
+[node name="Decor" type="Node2D" parent="." unique_id=1537910975]
 
-[node name="DoorGlow" type="Sprite2D" parent="Decor"]
+[node name="DoorGlow" type="Sprite2D" parent="Decor" unique_id=1827607171]
+position = Vector2(134, 6)
 texture = ExtResource("3_r")
 centered = false
-position = Vector2(134, 6)
 
-[node name="Arrow" type="Sprite2D" parent="Decor"]
+[node name="Arrow" type="Sprite2D" parent="Decor" unique_id=1411624556]
+position = Vector2(156, 0)
 texture = ExtResource("4_r")
 centered = false
-position = Vector2(156, 0)
 
-[node name="Walls" type="StaticBody2D" parent="."]
+[node name="Walls" type="StaticBody2D" parent="." unique_id=112208851]
 
-[node name="BackWall" type="CollisionShape2D" parent="Walls"]
-position = Vector2(160.0, 28.5)
+[node name="BackWall" type="CollisionShape2D" parent="Walls" unique_id=1477275142]
+position = Vector2(160, 28.5)
 shape = SubResource("rect_1")
 
-[node name="LeftWall" type="CollisionShape2D" parent="Walls"]
-position = Vector2(-1.0, 95.0)
+[node name="LeftWall" type="CollisionShape2D" parent="Walls" unique_id=917946004]
+position = Vector2(-1, 95)
 shape = SubResource("rect_2")
 
-[node name="RightWall" type="CollisionShape2D" parent="Walls"]
-position = Vector2(321.0, 95.0)
+[node name="RightWall" type="CollisionShape2D" parent="Walls" unique_id=624518567]
+position = Vector2(321, 95)
 shape = SubResource("rect_3")
 
-[node name="FrontLeft" type="CollisionShape2D" parent="Walls"]
-position = Vector2(72.0, 178.5)
+[node name="FrontLeft" type="CollisionShape2D" parent="Walls" unique_id=1792652226]
+position = Vector2(72, 178.5)
 shape = SubResource("rect_4")
 
-[node name="FrontRight" type="CollisionShape2D" parent="Walls"]
-position = Vector2(248.0, 178.5)
+[node name="FrontRight" type="CollisionShape2D" parent="Walls" unique_id=1659917965]
+position = Vector2(248, 178.5)
 shape = SubResource("rect_5")
 
-[node name="Outside" type="CollisionShape2D" parent="Walls"]
-position = Vector2(160.0, 186.0)
+[node name="Outside" type="CollisionShape2D" parent="Walls" unique_id=1392160864]
+position = Vector2(160, 186)
 shape = SubResource("rect_6")
 
-[node name="World" type="Node2D" parent="."]
+[node name="World" type="Node2D" parent="." unique_id=56662949]
 y_sort_enabled = true
 
-[node name="Player" parent="World" instance=ExtResource("5_r")]
+[node name="Player" parent="World" unique_id=2029608150 instance=ExtResource("5_r")]
 position = Vector2(160, 160)
 
-[node name="Receptionist" type="Sprite2D" parent="World"]
-texture = ExtResource("6_r")
+[node name="Receptionist" type="Sprite2D" parent="World" unique_id=1873293724]
 position = Vector2(56, 84)
+texture = ExtResource("6_r")
 centered = false
 offset = Vector2(-8, -22)
 hframes = 2
 
-[node name="Desk" type="StaticBody2D" parent="World"]
+[node name="Desk" type="StaticBody2D" parent="World" unique_id=1967106999]
 position = Vector2(60, 96)
 
-[node name="Sprite" type="Sprite2D" parent="World/Desk"]
+[node name="Sprite" type="Sprite2D" parent="World/Desk" unique_id=1892374001]
 texture = ExtResource("7_r")
 centered = false
 offset = Vector2(-32, -24)
 
-[node name="Shape" type="CollisionShape2D" parent="World/Desk"]
-position = Vector2(0, -5.0)
+[node name="Shape" type="CollisionShape2D" parent="World/Desk" unique_id=368825047]
+position = Vector2(0, -5)
 shape = SubResource("rect_7")
 
-[node name="Plant1" type="StaticBody2D" parent="World"]
+[node name="Plant1" type="StaticBody2D" parent="World" unique_id=580940093]
 position = Vector2(18, 72)
 
-[node name="Sprite" type="Sprite2D" parent="World/Plant1"]
+[node name="Sprite" type="Sprite2D" parent="World/Plant1" unique_id=1643140585]
 texture = ExtResource("8_r")
 centered = false
 offset = Vector2(-8, -25)
 
-[node name="Shape" type="CollisionShape2D" parent="World/Plant1"]
-position = Vector2(0, -2.0)
+[node name="Shape" type="CollisionShape2D" parent="World/Plant1" unique_id=1853037492]
+position = Vector2(0, -2)
 shape = SubResource("rect_8")
 
-[node name="Plant2" type="StaticBody2D" parent="World"]
+[node name="Plant2" type="StaticBody2D" parent="World" unique_id=1164477419]
 position = Vector2(302, 72)
 
-[node name="Sprite" type="Sprite2D" parent="World/Plant2"]
+[node name="Sprite" type="Sprite2D" parent="World/Plant2" unique_id=235392234]
 texture = ExtResource("8_r")
 centered = false
 offset = Vector2(-8, -25)
 
-[node name="Shape" type="CollisionShape2D" parent="World/Plant2"]
-position = Vector2(0, -2.0)
+[node name="Shape" type="CollisionShape2D" parent="World/Plant2" unique_id=1060232676]
+position = Vector2(0, -2)
 shape = SubResource("rect_9")
 
-[node name="Plant3" type="StaticBody2D" parent="World"]
+[node name="Plant3" type="StaticBody2D" parent="World" unique_id=93194455]
 position = Vector2(18, 162)
 
-[node name="Sprite" type="Sprite2D" parent="World/Plant3"]
+[node name="Sprite" type="Sprite2D" parent="World/Plant3" unique_id=1226751287]
 texture = ExtResource("8_r")
 centered = false
 offset = Vector2(-8, -25)
 
-[node name="Shape" type="CollisionShape2D" parent="World/Plant3"]
-position = Vector2(0, -2.0)
+[node name="Shape" type="CollisionShape2D" parent="World/Plant3" unique_id=827069593]
+position = Vector2(0, -2)
 shape = SubResource("rect_10")
 
-[node name="Plant4" type="StaticBody2D" parent="World"]
+[node name="Plant4" type="StaticBody2D" parent="World" unique_id=1235346847]
 position = Vector2(302, 162)
 
-[node name="Sprite" type="Sprite2D" parent="World/Plant4"]
+[node name="Sprite" type="Sprite2D" parent="World/Plant4" unique_id=1877230300]
 texture = ExtResource("8_r")
 centered = false
 offset = Vector2(-8, -25)
 
-[node name="Shape" type="CollisionShape2D" parent="World/Plant4"]
-position = Vector2(0, -2.0)
+[node name="Shape" type="CollisionShape2D" parent="World/Plant4" unique_id=686995146]
+position = Vector2(0, -2)
 shape = SubResource("rect_11")
 
-[node name="SofaBack" type="StaticBody2D" parent="World"]
+[node name="SofaBack" type="StaticBody2D" parent="World" unique_id=1177631806]
 position = Vector2(262, 82)
 
-[node name="Sprite" type="Sprite2D" parent="World/SofaBack"]
+[node name="Sprite" type="Sprite2D" parent="World/SofaBack" unique_id=585375973]
 texture = ExtResource("9_r")
 centered = false
 offset = Vector2(-22, -19)
 
-[node name="Shape" type="CollisionShape2D" parent="World/SofaBack"]
-position = Vector2(0, -4.0)
+[node name="Shape" type="CollisionShape2D" parent="World/SofaBack" unique_id=547844729]
+position = Vector2(0, -4)
 shape = SubResource("rect_12")
 
-[node name="CoffeeTable" type="StaticBody2D" parent="World"]
+[node name="CoffeeTable" type="StaticBody2D" parent="World" unique_id=843109774]
 position = Vector2(262, 102)
 
-[node name="Sprite" type="Sprite2D" parent="World/CoffeeTable"]
+[node name="Sprite" type="Sprite2D" parent="World/CoffeeTable" unique_id=67970656]
 texture = ExtResource("10_r")
 centered = false
 offset = Vector2(-15, -11)
 
-[node name="Shape" type="CollisionShape2D" parent="World/CoffeeTable"]
-position = Vector2(0, -3.0)
+[node name="Shape" type="CollisionShape2D" parent="World/CoffeeTable" unique_id=767909519]
+position = Vector2(0, -3)
 shape = SubResource("rect_13")
 
-[node name="SofaFront" type="StaticBody2D" parent="World"]
+[node name="SofaFront" type="StaticBody2D" parent="World" unique_id=977857427]
 position = Vector2(262, 124)
 
-[node name="Sprite" type="Sprite2D" parent="World/SofaFront"]
+[node name="Sprite" type="Sprite2D" parent="World/SofaFront" unique_id=272273032]
 texture = ExtResource("11_r")
 centered = false
 offset = Vector2(-22, -19)
 
-[node name="Shape" type="CollisionShape2D" parent="World/SofaFront"]
-position = Vector2(0, -4.0)
+[node name="Shape" type="CollisionShape2D" parent="World/SofaFront" unique_id=2085453562]
+position = Vector2(0, -4)
 shape = SubResource("rect_14")
 
-[node name="ColumnLeft" type="StaticBody2D" parent="World"]
+[node name="ColumnLeft" type="StaticBody2D" parent="World" unique_id=244613172]
 position = Vector2(100, 152)
 
-[node name="Sprite" type="Sprite2D" parent="World/ColumnLeft"]
+[node name="Sprite" type="Sprite2D" parent="World/ColumnLeft" unique_id=949085595]
 texture = ExtResource("12_r")
 centered = false
 offset = Vector2(-7, -47)
 
-[node name="Shape" type="CollisionShape2D" parent="World/ColumnLeft"]
+[node name="Shape" type="CollisionShape2D" parent="World/ColumnLeft" unique_id=1541124995]
 position = Vector2(0, -2.5)
 shape = SubResource("rect_15")
 
-[node name="ColumnRight" type="StaticBody2D" parent="World"]
+[node name="ColumnRight" type="StaticBody2D" parent="World" unique_id=473925772]
 position = Vector2(220, 152)
 
-[node name="Sprite" type="Sprite2D" parent="World/ColumnRight"]
+[node name="Sprite" type="Sprite2D" parent="World/ColumnRight" unique_id=1288878855]
 texture = ExtResource("12_r")
 centered = false
 offset = Vector2(-7, -47)
 
-[node name="Shape" type="CollisionShape2D" parent="World/ColumnRight"]
+[node name="Shape" type="CollisionShape2D" parent="World/ColumnRight" unique_id=449762549]
 position = Vector2(0, -2.5)
 shape = SubResource("rect_16")
 
-[node name="Bench" type="StaticBody2D" parent="World"]
+[node name="Bench" type="StaticBody2D" parent="World" unique_id=1659671559]
 position = Vector2(56, 138)
 
-[node name="Sprite" type="Sprite2D" parent="World/Bench"]
+[node name="Sprite" type="Sprite2D" parent="World/Bench" unique_id=967650446]
 texture = ExtResource("13_r")
 centered = false
 offset = Vector2(-14, -13)
 
-[node name="Shape" type="CollisionShape2D" parent="World/Bench"]
-position = Vector2(0, -2.0)
+[node name="Shape" type="CollisionShape2D" parent="World/Bench" unique_id=477505802]
+position = Vector2(0, -2)
 shape = SubResource("rect_17")
 
-[node name="HallDoor" type="Area2D" parent="."]
-position = Vector2(160.0, 60.0)
+[node name="HallDoor" type="Area2D" parent="." unique_id=1217563556]
+position = Vector2(160, 60)
+collision_mask = 2
 script = ExtResource("14_r")
 prompt = "E: ENTER THE GAME HALL"
 
-[node name="Shape" type="CollisionShape2D" parent="HallDoor"]
+[node name="Shape" type="CollisionShape2D" parent="HallDoor" unique_id=120721602]
 shape = SubResource("rect_18")
 
-[node name="InfoDesk" type="Area2D" parent="."]
-position = Vector2(60.0, 102.0)
+[node name="InfoDesk" type="Area2D" parent="." unique_id=620734429]
+position = Vector2(60, 102)
+collision_mask = 2
 script = ExtResource("14_r")
 prompt = "E: TALK"
 
-[node name="Shape" type="CollisionShape2D" parent="InfoDesk"]
+[node name="Shape" type="CollisionShape2D" parent="InfoDesk" unique_id=1805874376]
 shape = SubResource("rect_19")
 
-[node name="ExitDoor" type="Area2D" parent="."]
-position = Vector2(160.0, 177.0)
+[node name="ExitDoor" type="Area2D" parent="." unique_id=584576766]
+position = Vector2(160, 177)
+collision_mask = 2
 
-[node name="Shape" type="CollisionShape2D" parent="ExitDoor"]
+[node name="Shape" type="CollisionShape2D" parent="ExitDoor" unique_id=1048884480]
 shape = SubResource("rect_20")
 
-[node name="Spawns" type="Node2D" parent="."]
+[node name="Spawns" type="Node2D" parent="." unique_id=1173308406]
 
-[node name="front_door" type="Marker2D" parent="Spawns"]
+[node name="front_door" type="Marker2D" parent="Spawns" unique_id=595211951]
 position = Vector2(160, 160)
 metadata/facing = 3
 
-[node name="from_hall" type="Marker2D" parent="Spawns"]
+[node name="from_hall" type="Marker2D" parent="Spawns" unique_id=325341530]
 position = Vector2(160, 72)
 metadata/facing = 0
 
-[node name="HUD" parent="." instance=ExtResource("15_r")]
+[node name="HUD" parent="." unique_id=1292986747 instance=ExtResource("15_r")]
 
-[node name="LobbyPanel" parent="." instance=ExtResource("16_r")]
+[node name="LobbyPanel" parent="." unique_id=1550994758 instance=ExtResource("16_r")]
 
-[node name="PauseMenu" parent="." instance=ExtResource("17_pm")]
+[node name="PauseMenu" parent="." unique_id=1477059739 instance=ExtResource("17_pm")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=58808209]
+position = Vector2(160, 90)

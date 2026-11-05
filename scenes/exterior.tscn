@@ -148,6 +148,7 @@ shape = SubResource("rect_11")
 
 [node name="DoorTrigger" type="Area2D" parent="." unique_id=1944748137]
 position = Vector2(160, 129)
+collision_mask = 2
 
 [node name="Shape" type="CollisionShape2D" parent="DoorTrigger" unique_id=19805638]
 shape = SubResource("rect_12")
@@ -165,3 +166,6 @@ metadata/facing = 0
 [node name="HUD" parent="." unique_id=1763223191 instance=ExtResource("8_r")]
 
 [node name="PauseMenu" parent="." unique_id=712299810 instance=ExtResource("9_pm")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1553500553]
+position = Vector2(160, 90)
