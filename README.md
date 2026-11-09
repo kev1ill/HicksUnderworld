@@ -1,8 +1,6 @@
-# Hicks Center Lobby (Godot 4)
+# HicksUnderworld
 
-A 2D pixel-art lobby modelled on the Weimer K. Hicks Center. The player starts on the
-campus quad, walks into the building through the glass doors, and starts the game from
-the **Game Hall** doors inside the lobby.
+The player begins their quest for the Legendary K Cash on the K College campus quad. The player moves through a 2D pixel-art lobby modelled on the Weimer K. Hicks Center, walking into the building through the glass doors, and starts the game from the **Game Hall** doors inside the lobby. Once the player has entered the **Game Hall**, they are transported to the first dungeon.
 
 ## Run it
 
@@ -10,8 +8,8 @@ the **Game Hall** doors inside the lobby.
 2. Project Manager → **Import** → pick `project.godot` in this folder → **Import & Edit**.
 3. Press **F5** (Run Project).
 
-Controls: **WASD / arrow keys** to move, **E** or **Space** to interact, **Esc** to close menus
-or leave the Game Hall. Gamepads work too (left stick / d-pad, A to interact).
+Controls: **WASD / arrow keys** to move, **Space / J** to attack, **E** to interact, **Esc** to close menus
+or leave the Game Hall.
 
 ## Flow
 
@@ -19,7 +17,7 @@ or leave the Game Hall. Gamepads work too (left stick / d-pad, A to interact).
 |---|---|
 | `scenes/exterior.tscn` (main) | Campus quad in front of the Hicks Center. Walk into the front doors to go inside. |
 | `scenes/lobby.tscn` | The lobby. Talk to the receptionist at the INFO desk, or press E at the glowing **GAME HALL** doors to open the lobby menu (name + Start Game). Walk out the bottom door to go back outside. |
-| `scenes/game_hall.tscn` | Placeholder for your actual game. `Game.player_name` holds the name typed in the lobby. |
+| `scenes/dungeon.tscn` | The first dungeon where the player fights a series of orcs |
 
 ## Project layout
 
@@ -30,23 +28,4 @@ scenes/       exterior, lobby, game_hall, player
 scripts/      game.gd (autoload: input map, scene fades, player name), player.gd,
               interactable.gd, level.gd, hud.gd, lobby_panel.gd, ...
 ui/           hud.tscn, lobby_panel.tscn, theme.tres (orange/black pixel UI)
-tools/        generate_art.py – edit colours/shapes and re-run to regenerate the art
 ```
-
-## Customising
-
-- **Hook up your game:** in `scripts/lobby_panel.gd`, `_on_start()` calls
-  `Game.go_to(Game.GAME_HALL, "start")`. Point `GAME_HALL` in `scripts/game.gd` at your
-  own gameplay scene, or build it inside `game_hall.tscn`.
-- **Add something the player can interact with:** add an `Area2D` with a
-  `CollisionShape2D`, attach `scripts/interactable.gd`, set its `prompt`, and connect its
-  `interacted` signal.
-- **New doors / scenes:** call `Game.go_to("res://scenes/your_scene.tscn", "spawn_name")`
-  and add a `Marker2D` called `spawn_name` under the target scene's `Spawns` node
-  (metadata `facing`: 0 down, 1 left, 2 right, 3 up).
-- **Art:** `pip install pillow` then `python3 tools/generate_art.py`. Godot re-imports
-  automatically. You can also just paint over the PNGs in Aseprite or similar.
-- Base resolution is 320×180, scaled ×4 to a 1280×720 window with nearest-neighbour
-  filtering, so everything stays crisp.
-
-The renderer is set to *Compatibility*, so the project also exports to Web/HTML5.
