@@ -1,0 +1,17 @@
+[remap]
+
+importer="font_data_bmfont"
+type="FontFile"
+uid="uid://btn2f4ivt2a13"
+path="res://.godot/imported/hicks_pixel.fnt-5d16d18a5008ee8494673d1e769964a8.fontdata"
+
+[deps]
+
+source_file="res://hicks_pixel.fnt"
+dest_files=["res://.godot/imported/hicks_pixel.fnt-5d16d18a5008ee8494673d1e769964a8.fontdata"]
+
+[params]
+
+fallbacks=[]
+compress=true
+scaling_mode=2

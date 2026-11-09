@@ -1,0 +1,77 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/lobby_panel.gd" id="1_lp"]
+
+[node name="LobbyPanel" type="CanvasLayer"]
+layer = 20
+script = ExtResource("1_lp")
+
+[node name="Dim" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.03, 0.02, 0.03, 0.6)
+
+[node name="Panel" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(190, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.0
+offset_right = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Title" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.97, 0.62, 0.28, 1)
+theme_override_font_sizes/font_size = 16
+text = "GAME LOBBY"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.62, 0.58, 0.55, 1)
+text = "WEIMER K. HICKS CENTER"
+horizontal_alignment = 1
+
+[node name="Sep" type="HSeparator" parent="Panel/VBox"]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+text = "YOUR NAME"
+
+[node name="NameEdit" type="LineEdit" parent="Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "TYPE A NAME..."
+max_length = 14
+caret_blink = true
+
+[node name="Spacer" type="Control" parent="Panel/VBox"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="BackButton" type="Button" parent="Panel/VBox/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "BACK"
+
+[node name="StartButton" type="Button" parent="Panel/VBox/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "START GAME"

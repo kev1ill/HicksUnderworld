@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://gte3ok3t135m"]
+
+[ext_resource type="Script" uid="uid://briio6wu1w6v6" path="res://scripts/health_flask.gd" id="1_lb00e"]
+[ext_resource type="Texture2D" uid="uid://mnv5mpajgkx0" path="res://assets/frames/flask_red.png" id="2_j1wmb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ik31s"]
+radius = 3.0
+
+[node name="HealthFlask" type="Area2D" unique_id=1046094792]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_lb00e")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1204273313]
+texture = ExtResource("2_j1wmb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=405521492]
+shape = SubResource("CircleShape2D_ik31s")

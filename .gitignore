@@ -1,6 +1,15 @@
+<<<<<<< HEAD
 # Godot 4+ specific ignores
 .godot/
 /android/
 *.translation
 export.cfg
 export_credentials.cfg
+=======
+.godot/
+*.tmp
+/android/
+
+# Summer Engine local-only state (SummerGit, caches, locks)
+.summer/local/
+>>>>>>> 36f373d20041e16884a414ed4d1815bd81549632
