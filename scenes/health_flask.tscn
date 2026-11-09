@@ -8,7 +8,7 @@ radius = 3.0
 
 [node name="HealthFlask" type="Area2D" unique_id=1046094792]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 8
 script = ExtResource("1_lb00e")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1204273313]

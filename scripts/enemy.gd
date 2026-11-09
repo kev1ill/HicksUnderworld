@@ -51,9 +51,10 @@ func _physics_process(delta: float) -> void:
 	
 	cooldown = max(cooldown - delta, 0.0)
 	if cooldown == 0.0:
-		for body in contact_area.get_overlapping_bodies():
-			if body.has_method("take_hit"):
-				body.take_hit(contact_damage, global_position)
+		for area in contact_area.get_overlapping_areas():
+			var hurtbox_target := area.get_parent()
+			if hurtbox_target.has_method("take_hit"):
+				hurtbox_target.take_hit(contact_damage, global_position)
 				cooldown = hit_cooldown
 
 func take_hit(amount: int, from: Vector2) -> void:

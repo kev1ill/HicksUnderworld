@@ -82,7 +82,7 @@ metadata/_custom_type_script = "uid://fbwie5iyl5bk"
 
 [node name="ContactArea" type="Area2D" parent="." unique_id=312558737]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ContactArea" unique_id=766467548]
 position = Vector2(1, -5)

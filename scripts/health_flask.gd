@@ -9,8 +9,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float) -> void:
-	for body in get_overlapping_bodies():
-		if body.has_method("heal") and body.heal(heal_amount):
+	for area in get_overlapping_areas():
+		if area.get_parent().has_method("heal") and area.get_parent().heal(heal_amount):
 			queue_free()
 			return
 			
