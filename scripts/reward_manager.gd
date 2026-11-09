@@ -28,7 +28,7 @@ func setup(p) -> void:
 func on_wave_cleared(wave: int) -> void:
 	#give a message for every wave
 	var message := "Wave %d cleared!" % wave
-	#if there is a reward for completing the round, tell the player
+	#if there is a reward for completing the wave, tell the player
 	if reward_table.has(wave):
 		message += "\n" + _give_reward(wave)
 	
