@@ -1,28 +1,28 @@
 [gd_scene format=4 uid="uid://xkgyco72fd2q"]
 
-[ext_resource type="Script" uid="uid://dvp6wv7cmcywy" path="res://scripts/dungeon.gd" id="1_kun6q"]
-[ext_resource type="Texture2D" uid="uid://dsgx76p1cx1h3" path="res://assets/atlas_floor-16x16.png" id="2_7wc3a"]
-[ext_resource type="Texture2D" uid="uid://d4icok0giqsxo" path="res://assets/atlas_walls_low-16x16.png" id="3_uag5o"]
-[ext_resource type="PackedScene" uid="uid://bo8w23rn5aclf" path="res://scenes/dungeon_player.tscn" id="4_jqckn"]
-[ext_resource type="Script" uid="uid://b0sm1ojjtxo0i" path="res://scripts/dungeon_hud.gd" id="5_o2cd7"]
-[ext_resource type="Texture2D" uid="uid://bcur5wx068tg6" path="res://assets/frames/ui_heart_full.png" id="6_av2vf"]
-[ext_resource type="Texture2D" uid="uid://b2cm25gibaqtt" path="res://assets/frames/ui_heart_half.png" id="7_6gydx"]
-[ext_resource type="Texture2D" uid="uid://co56i25u3t7rk" path="res://assets/frames/ui_heart_empty.png" id="8_85cul"]
-[ext_resource type="Script" uid="uid://c0kkogxalelu2" path="res://scripts/wave_spawner.gd" id="9_77ujo"]
-[ext_resource type="PackedScene" uid="uid://cvbqb5he7ao53" path="res://scenes/goblin.tscn" id="10_kun6q"]
-[ext_resource type="PackedScene" uid="uid://bu0h3gmys5vnw" path="res://scenes/masked_orc.tscn" id="11_uag5o"]
-[ext_resource type="FontFile" uid="uid://ccn0x0awyeduw" path="res://fonts/hicks_pixel.fnt" id="11_v0d4f"]
-[ext_resource type="PackedScene" uid="uid://bac66lxb36l6j" path="res://scenes/orc_warrior.tscn" id="12_jqckn"]
-[ext_resource type="Script" uid="uid://s541n6ntomdp" path="res://scripts/reward_manager.gd" id="13_jqckn"]
-[ext_resource type="Script" uid="uid://djn3je26piwqu" path="res://scripts/weapon_data.gd" id="14_v3ata"]
-[ext_resource type="Resource" uid="uid://csbp16klg2v7t" path="res://resources/rusty_sword.tres" id="15_uj8uw"]
-[ext_resource type="Resource" uid="uid://db1m1uaqs43eu" path="res://resources/regular_sword.tres" id="16_k21r5"]
-[ext_resource type="Resource" uid="uid://d2qihy2t4mrct" path="res://resources/red_gem_sword.tres" id="17_5grt3"]
-[ext_resource type="Resource" uid="uid://b0mmxne1lcjoa" path="res://resources/saw_sword.tres" id="18_ou4rh"]
-[ext_resource type="Resource" uid="uid://bob7dgc7757pj" path="res://resources/anime_sword.tres" id="19_tkvb4"]
+[ext_resource type="Script" uid="uid://dvp6wv7cmcywy" path="res://scripts/dungeon.gd" id="1_77ye7"]
+[ext_resource type="Texture2D" uid="uid://dsgx76p1cx1h3" path="res://assets/atlas_floor-16x16.png" id="2_m71w8"]
+[ext_resource type="Texture2D" uid="uid://d4icok0giqsxo" path="res://assets/atlas_walls_low-16x16.png" id="3_oemws"]
+[ext_resource type="PackedScene" uid="uid://bo8w23rn5aclf" path="res://scenes/player.tscn" id="4_u3dkd"]
+[ext_resource type="Script" uid="uid://cp5rxorq201eu" path="res://scripts/dungeon_hud.gd" id="5_uvd6r"]
+[ext_resource type="Texture2D" uid="uid://bcur5wx068tg6" path="res://assets/frames/ui_heart_full.png" id="6_2s6u7"]
+[ext_resource type="Texture2D" uid="uid://b2cm25gibaqtt" path="res://assets/frames/ui_heart_half.png" id="7_3qdsh"]
+[ext_resource type="Texture2D" uid="uid://co56i25u3t7rk" path="res://assets/frames/ui_heart_empty.png" id="8_ii3il"]
+[ext_resource type="FontFile" uid="uid://ccn0x0awyeduw" path="res://fonts/hicks_pixel.fnt" id="9_4peiy"]
+[ext_resource type="Script" uid="uid://c0kkogxalelu2" path="res://scripts/wave_spawner.gd" id="10_lifgv"]
+[ext_resource type="PackedScene" uid="uid://cvbqb5he7ao53" path="res://scenes/goblin.tscn" id="11_sfvj0"]
+[ext_resource type="PackedScene" uid="uid://bu0h3gmys5vnw" path="res://scenes/masked_orc.tscn" id="12_j53n1"]
+[ext_resource type="PackedScene" uid="uid://bac66lxb36l6j" path="res://scenes/orc_warrior.tscn" id="13_b7qxk"]
+[ext_resource type="Script" uid="uid://s541n6ntomdp" path="res://scripts/reward_manager.gd" id="14_eexwg"]
+[ext_resource type="Script" uid="uid://djn3je26piwqu" path="res://scripts/weapon_data.gd" id="15_u8io7"]
+[ext_resource type="Resource" uid="uid://csbp16klg2v7t" path="res://resources/rusty_sword.tres" id="16_ynjoq"]
+[ext_resource type="Resource" uid="uid://db1m1uaqs43eu" path="res://resources/regular_sword.tres" id="17_uklki"]
+[ext_resource type="Resource" uid="uid://d2qihy2t4mrct" path="res://resources/red_gem_sword.tres" id="18_sfj0y"]
+[ext_resource type="Resource" uid="uid://b0mmxne1lcjoa" path="res://resources/saw_sword.tres" id="19_f3rfd"]
+[ext_resource type="Resource" uid="uid://bob7dgc7757pj" path="res://resources/anime_sword.tres" id="20_c5so4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_orq0m"]
-texture = ExtResource("2_7wc3a")
+texture = ExtResource("2_m71w8")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -75,7 +75,7 @@ physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_orq0m")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_my81p"]
-texture = ExtResource("3_uag5o")
+texture = ExtResource("3_oemws")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.919908, -8, 2.8991632, -8, 2.8991632, 8, -2.8527832, 8)
 1:0/0 = 0
@@ -177,7 +177,7 @@ physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_my81p")
 
 [node name="Dungeon" type="Node2D" unique_id=1390571155]
-script = ExtResource("1_kun6q")
+script = ExtResource("1_77ye7")
 level_title = "LEVEL 2 - THE DEEP HALLS"
 
 [node name="Floor" type="TileMapLayer" parent="." unique_id=197655762]
@@ -189,14 +189,18 @@ tile_set = SubResource("TileSet_ik31s")
 tile_map_data = PackedByteArray("AADs//P/AAABAAAAAADt//P/AAACAAMAAADu//P/AAACAAMAAADv//P/AAACAAMAAADw//P/AAACAAMAAADx//P/AAACAAMAAADy//P/AAACAAMAAADz//P/AAACAAMAAAD0//P/AAACAAMAAAD1//P/AAACAAMAAAD2//P/AAACAAMAAAD3//P/AAACAAMAAAD4//P/AAACAAMAAAD5//P/AAACAAMAAAD6//P/AAACAAMAAAD7//P/AAACAAMAAAD8//P/AAACAAMAAAD9//P/AAACAAMAAAD+//P/AAACAAMAAAD///P/AAACAAMAAAAAAPP/AAACAAMAAAABAPP/AAACAAMAAAACAPP/AAACAAMAAAADAPP/AAACAAMAAAAEAPP/AAACAAMAAAAFAPP/AAACAAMAAAAGAPP/AAACAAMAAAAHAPP/AAACAAMAAAAIAPP/AAACAAMAAAAJAPP/AAACAAMAAAAKAPP/AAACAAMAAAALAPP/AAACAAMAAAAMAPP/AAACAAMAAAANAPP/AAACAAMAAAAOAPP/AAACAAMAAAAPAPP/AAACAAMAAAAQAPP/AAACAAMAAAARAPP/AAACAAMAAAASAPP/AAACAAMAAAATAPP/AAADAAAAAADs//T/AAAAAAEAAAATAPT/AAAAAAEAAADs//X/AAAAAAEAAAATAPX/AAAAAAEAAADs//b/AAAAAAEAAADw//b/AAABAAAAAADx//b/AAADAAAAAAANAPb/AAABAAAAAAAOAPb/AAADAAAAAAATAPb/AAAAAAEAAADs//f/AAAAAAEAAADw//f/AAABAAIAAADx//f/AAADAAIAAAANAPf/AAABAAIAAAAOAPf/AAADAAIAAAATAPf/AAAAAAEAAADs//j/AAAAAAEAAAATAPj/AAAAAAEAAADs//n/AAAAAAEAAAATAPn/AAAAAAEAAADs//r/AAAAAAEAAAD///r/AAABAAAAAAAAAPr/AAADAAAAAAATAPr/AAAAAAEAAADs//v/AAAAAAEAAAD///v/AAABAAIAAAAAAPv/AAADAAIAAAATAPv/AAAAAAEAAADs//z/AAAAAAEAAAATAPz/AAAAAAEAAADs//3/AAAAAAEAAAATAP3/AAAAAAEAAADs//7/AAAAAAEAAADt//7/AAACAAMAAADu//7/AAACAAMAAADv//7/AAACAAMAAADw//7/AAACAAMAAADx//7/AAACAAMAAADy//7/AAACAAMAAADz//7/AAACAAMAAAD6//7/AAACAAMAAAD7//7/AAACAAMAAAD8//7/AAACAAMAAAD9//7/AAACAAMAAAD+//7/AAACAAMAAAD///7/AAACAAMAAAAAAP7/AAACAAMAAAABAP7/AAACAAMAAAACAP7/AAACAAMAAAADAP7/AAACAAMAAAAEAP7/AAACAAMAAAAFAP7/AAACAAMAAAAMAP7/AAACAAMAAAANAP7/AAACAAMAAAAOAP7/AAACAAMAAAAPAP7/AAACAAMAAAAQAP7/AAACAAMAAAARAP7/AAACAAMAAAASAP7/AAACAAMAAAATAP7/AAAAAAEAAADs////AAAAAAEAAAATAP//AAAAAAEAAADs/wAAAAAAAAEAAAATAAAAAAAAAAEAAADs/wEAAAAAAAEAAAATAAEAAAAAAAEAAADs/wIAAAAAAAEAAAATAAIAAAAAAAEAAADs/wMAAAAAAAEAAAAAAAMAAAAAAAEAAAATAAMAAAAAAAEAAADs/wQAAAAAAAEAAAD4/wQAAAACAAMAAAD5/wQAAAACAAMAAAAAAAQAAAAAAAEAAAAHAAQAAAACAAMAAAAIAAQAAAACAAMAAAATAAQAAAAAAAEAAADs/wUAAAAAAAEAAAD0/wUAAAACAAMAAAD1/wUAAAACAAMAAAD2/wUAAAACAAMAAAD3/wUAAAACAAMAAAAAAAUAAAACAAMAAAAJAAUAAAACAAMAAAAKAAUAAAACAAMAAAALAAUAAAACAAMAAAAMAAUAAAACAAMAAAATAAUAAAAAAAEAAADs/wYAAAAAAAEAAADw/wYAAAABAAAAAADx/wYAAAADAAAAAAAAAAYAAAAAAAEAAAANAAYAAAABAAAAAAAOAAYAAAADAAAAAAATAAYAAAAAAAEAAADs/wcAAAAAAAEAAADw/wcAAAABAAIAAADx/wcAAAADAAIAAAANAAcAAAABAAIAAAAOAAcAAAADAAIAAAATAAcAAAAAAAEAAADs/wgAAAAAAAEAAAATAAgAAAAAAAEAAADs/wkAAAAAAAEAAAAAAAkAAAAAAAEAAAATAAkAAAAAAAEAAADs/woAAAAAAAEAAAAAAAoAAAAAAAEAAAATAAoAAAAAAAEAAADs/wsAAAAAAAEAAAATAAsAAAAAAAEAAADs/wwAAAABAAIAAADt/wwAAAACAAMAAADu/wwAAAACAAMAAADv/wwAAAACAAMAAADw/wwAAAACAAMAAADx/wwAAAACAAMAAADy/wwAAAACAAMAAADz/wwAAAACAAMAAAD0/wwAAAACAAMAAAD1/wwAAAACAAMAAAD2/wwAAAACAAMAAAD3/wwAAAACAAMAAAD4/wwAAAACAAMAAAD5/wwAAAACAAMAAAD6/wwAAAACAAMAAAD7/wwAAAACAAMAAAD8/wwAAAACAAMAAAD9/wwAAAACAAMAAAD+/wwAAAACAAMAAAD//wwAAAACAAMAAAAAAAwAAAACAAMAAAABAAwAAAACAAMAAAACAAwAAAACAAMAAAADAAwAAAACAAMAAAAEAAwAAAACAAMAAAAFAAwAAAACAAMAAAAGAAwAAAACAAMAAAAHAAwAAAACAAMAAAAIAAwAAAACAAMAAAAJAAwAAAACAAMAAAAKAAwAAAACAAMAAAALAAwAAAACAAMAAAAMAAwAAAACAAMAAAANAAwAAAACAAMAAAAOAAwAAAACAAMAAAAPAAwAAAACAAMAAAAQAAwAAAACAAMAAAARAAwAAAACAAMAAAASAAwAAAACAAMAAAATAAwAAAADAAIAAAA=")
 tile_set = SubResource("TileSet_ticvn")
 
-[node name="Player" parent="." unique_id=1753172116 instance=ExtResource("4_jqckn")]
+[node name="Player" parent="." unique_id=1753172116 instance=ExtResource("4_u3dkd")]
 position = Vector2(-24, 168)
 
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1406922027]
+position_smoothing_enabled = true
+position_smoothing_speed = 6.0
+
 [node name="HUD" type="CanvasLayer" parent="." unique_id=321325794]
-script = ExtResource("5_o2cd7")
-full_heart = ExtResource("6_av2vf")
-half_heart = ExtResource("7_6gydx")
-empty_heart = ExtResource("8_85cul")
+script = ExtResource("5_uvd6r")
+full_heart = ExtResource("6_2s6u7")
+half_heart = ExtResource("7_3qdsh")
+empty_heart = ExtResource("8_ii3il")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HUD" unique_id=1382668330]
 offset_left = 4.0
@@ -210,7 +214,7 @@ offset_left = 4.0
 offset_top = 24.0
 offset_right = 44.0
 offset_bottom = 47.0
-theme_override_fonts/font = ExtResource("11_v0d4f")
+theme_override_fonts/font = ExtResource("9_4peiy")
 theme_override_font_sizes/font_size = 8
 metadata/_edit_use_anchors_ = true
 
@@ -220,7 +224,7 @@ anchor_right = 1.0
 offset_top = 30.0
 offset_bottom = 53.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("11_v0d4f")
+theme_override_fonts/font = ExtResource("9_4peiy")
 theme_override_font_sizes/font_size = 8
 horizontal_alignment = 1
 
@@ -251,14 +255,14 @@ position = Vector2(-200, 56)
 position = Vector2(216, 56)
 
 [node name="WaveSpawner" type="Node" parent="." unique_id=1811715866]
-script = ExtResource("9_77ujo")
-goblin = ExtResource("10_kun6q")
-masked_orc = ExtResource("11_uag5o")
-orc_warrior = ExtResource("12_jqckn")
+script = ExtResource("10_lifgv")
+goblin = ExtResource("11_sfvj0")
+masked_orc = ExtResource("12_j53n1")
+orc_warrior = ExtResource("13_b7qxk")
 spawn_interval = 0.35
 time_between_waves = 3.0
 hard_mode = true
 
 [node name="RewardManager" type="Node" parent="." unique_id=1189691849]
-script = ExtResource("13_jqckn")
-weapons = Array[ExtResource("14_v3ata")]([ExtResource("15_uj8uw"), ExtResource("16_k21r5"), ExtResource("17_5grt3"), ExtResource("18_ou4rh"), ExtResource("19_tkvb4")])
+script = ExtResource("14_eexwg")
+weapons = Array[ExtResource("15_u8io7")]([ExtResource("16_ynjoq"), ExtResource("17_uklki"), ExtResource("18_sfj0y"), ExtResource("19_f3rfd"), ExtResource("20_c5so4")])
