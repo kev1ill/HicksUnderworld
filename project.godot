@@ -15,9 +15,10 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="HicksUnderworld"
-config/description="2D pixel-art lobby modelled on the Weimer K. Hicks Center."
+config/description="2D Roguelike where a K student fights through waves of monsters in the dungeons under the Hicks Center"
 run/main_scene="res://scenes/exterior.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
+boot_splash/image="uid://dbgcdnixb47i6"
 config/icon="res://assets/icon.svg"
 
 [autoload]
