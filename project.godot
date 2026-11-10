@@ -18,6 +18,7 @@ config/name="HicksUnderworld"
 config/description="2D pixel-art lobby modelled on the Weimer K. Hicks Center."
 run/main_scene="res://scenes/exterior.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
+boot_splash/image="uid://dbgcdnixb47i6"
 config/icon="res://assets/icon.svg"
 
 [autoload]
