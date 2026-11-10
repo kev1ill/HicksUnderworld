@@ -177,6 +177,7 @@ sources/0 = SubResource("TileSetAtlasSource_my81p")
 
 [node name="Dungeon" type="Node2D" unique_id=1390571155]
 script = ExtResource("1_kun6q")
+next_level_scene = "res://scenes/dungeon2.tscn"
 
 [node name="Floor" type="TileMapLayer" parent="." unique_id=197655762]
 position = Vector2(8, 0)

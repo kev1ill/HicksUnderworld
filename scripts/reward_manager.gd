@@ -19,11 +19,16 @@ var weapon_index := 0
 var player
 
 #called by the dungeon to give the player the rusty sword at the start
+# On Level 2 this restores the weapon / health earned in Level 1,
+# which dungeon.gd saved into the Game autoload on victory.
 func setup(p) -> void:
 	player = p
 	
 	if not weapons.is_empty():
-		player.equip_weapon(weapons[0])
+		weapon_index = clampi(Game.dungeon_weapon_index, 0, weapons.size() - 1)
+		if Game.dungeon_health_bonus > 0:
+			player.health.increase_max(Game.dungeon_health_bonus)
+		player.equip_weapon(weapons[weapon_index])
 
 func on_wave_cleared(wave: int) -> void:
 	#give a message for every wave

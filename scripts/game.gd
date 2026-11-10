@@ -9,6 +9,10 @@ const MUSIC_PATH := "res://audio/lobby_theme.ogg"
 
 ## Name the player typed in the lobby panel.
 var player_name := "PLAYER"
+## Progress carried from Level 1 to Level 2 (reset when a new game
+## starts from the lobby panel). Base max health is 6.
+var dungeon_weapon_index := 0
+var dungeon_health_bonus := 0
 ## Music preference, owned by the pause/settings menu.
 var music_enabled := true
 ## Which Marker2D (under "Spawns") the next scene should place the player on.
