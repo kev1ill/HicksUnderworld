@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://1c2bse8rs6dp"]
 
 [ext_resource type="Script" uid="uid://c5eun15hmljoj" path="res://scripts/lobby.gd" id="1_r"]
-[ext_resource type="Texture2D" uid="uid://cfb2dmbiqal4y" path="res://art/interior.png" id="2_r"]
+[ext_resource type="Texture2D" uid="uid://cq5cv1mhm8sbs" path="res://art/interior.png" id="2_r"]
 [ext_resource type="Texture2D" uid="uid://blqxb7lj8af8g" path="res://art/door_glow.png" id="3_r"]
 [ext_resource type="Texture2D" uid="uid://dgawrrtbjbceu" path="res://art/arrow.png" id="4_r"]
 [ext_resource type="PackedScene" uid="uid://bo8w23rn5aclf" path="res://scenes/player.tscn" id="5_r"]
@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://deqcj3kothc88" path="res://art/bench.png" id="13_r"]
 [ext_resource type="Script" uid="uid://f2qujhhyncdc" path="res://scripts/interactable.gd" id="14_r"]
 [ext_resource type="PackedScene" uid="uid://cy3xui7ew0kib" path="res://ui/hud.tscn" id="15_r"]
-[ext_resource type="PackedScene" path="res://ui/lobby_panel.tscn" id="16_r"]
+[ext_resource type="PackedScene" uid="uid://gxxoo1aowk4l" path="res://ui/lobby_panel.tscn" id="16_r"]
 [ext_resource type="PackedScene" path="res://ui/pause_menu.tscn" id="17_pm"]
 
 [sub_resource type="RectangleShape2D" id="rect_1"]
@@ -273,7 +273,7 @@ shape = SubResource("rect_17")
 position = Vector2(160, 60)
 collision_mask = 2
 script = ExtResource("14_r")
-prompt = "E: ENTER THE GAME HALL"
+prompt = "E: ENTER THE HICKS UNDERWORLD"
 
 [node name="Shape" type="CollisionShape2D" parent="HallDoor" unique_id=120721602]
 shape = SubResource("rect_18")
