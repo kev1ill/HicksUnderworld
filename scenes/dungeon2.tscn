@@ -20,6 +20,7 @@
 [ext_resource type="Resource" uid="uid://d2qihy2t4mrct" path="res://resources/red_gem_sword.tres" id="18_sfj0y"]
 [ext_resource type="Resource" uid="uid://b0mmxne1lcjoa" path="res://resources/saw_sword.tres" id="19_f3rfd"]
 [ext_resource type="Resource" uid="uid://bob7dgc7757pj" path="res://resources/anime_sword.tres" id="20_c5so4"]
+[ext_resource type="PackedScene" path="res://ui/pause_menu.tscn" id="21_m71w8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_orq0m"]
 texture = ExtResource("2_m71w8")
@@ -267,3 +268,5 @@ hard_mode = true
 script = ExtResource("14_eexwg")
 spawner = NodePath("../WaveSpawner")
 weapons = Array[ExtResource("15_u8io7")]([ExtResource("16_ynjoq"), ExtResource("17_uklki"), ExtResource("18_sfj0y"), ExtResource("19_f3rfd"), ExtResource("20_c5so4")])
+
+[node name="PauseMenu" parent="." unique_id=98527515 instance=ExtResource("21_m71w8")]

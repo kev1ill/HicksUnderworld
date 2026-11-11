@@ -19,6 +19,7 @@
 [ext_resource type="Resource" uid="uid://d2qihy2t4mrct" path="res://resources/red_gem_sword.tres" id="17_5grt3"]
 [ext_resource type="Resource" uid="uid://b0mmxne1lcjoa" path="res://resources/saw_sword.tres" id="18_ou4rh"]
 [ext_resource type="Resource" uid="uid://bob7dgc7757pj" path="res://resources/anime_sword.tres" id="19_tkvb4"]
+[ext_resource type="PackedScene" path="res://ui/pause_menu.tscn" id="20_aumn5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_orq0m"]
 texture = ExtResource("2_7wc3a")
@@ -249,3 +250,5 @@ weapons = Array[ExtResource("14_v3ata")]([ExtResource("15_uj8uw"), ExtResource("
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1804579145]
 position = Vector2(8, -21)
+
+[node name="PauseMenu" parent="." unique_id=990881822 instance=ExtResource("20_aumn5")]
