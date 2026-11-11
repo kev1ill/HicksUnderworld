@@ -2,6 +2,16 @@
 
 The player begins their quest for the Legendary K Cash on the K College campus quad. The player moves through a 2D pixel-art lobby modelled on the Weimer K. Hicks Center, walking into the building through the glass doors, and starts the game from the **Game Hall** doors inside the lobby. Once the player has entered the **Game Hall**, they are transported to the first dungeon.
 
+## TaskList
+
+- [ ] Make a cover image
+- [ ] Add enemy: orc shaman
+- [ ] add enemy: orc boss
+- [ ] add audio
+- [ ] fix: enemies get stuck on walls in dungeon 2
+- [ ] fix: player can attack enemies through walls in dungeon 2
+- [ ] fix: player moves in front of objects when they should be behind them in the exterior and lobby scenes
+
 ## Run it
 
 1. Install **Godot 4.3** or newer (standard build, no .NET needed).
