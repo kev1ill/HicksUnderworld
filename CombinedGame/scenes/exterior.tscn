@@ -1,13 +1,13 @@
-[gd_scene load_steps=21 format=3]
+[gd_scene format=3 uid="uid://cwiss40ns1ghk"]
 
-[ext_resource type="Script" path="res://scripts/exterior.gd" id="1_r"]
-[ext_resource type="Texture2D" path="res://art/exterior.png" id="2_r"]
-[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="3_r"]
-[ext_resource type="Texture2D" path="res://art/tree_big.png" id="4_r"]
-[ext_resource type="Texture2D" path="res://art/tree_small.png" id="5_r"]
-[ext_resource type="Texture2D" path="res://art/lamp.png" id="6_r"]
-[ext_resource type="Texture2D" path="res://art/bench.png" id="7_r"]
-[ext_resource type="PackedScene" path="res://ui/hud.tscn" id="8_r"]
+[ext_resource type="Script" uid="uid://ditnyqpr1wtb8" path="res://scripts/exterior.gd" id="1_r"]
+[ext_resource type="Texture2D" uid="uid://l3b5fdsj0beq" path="res://art/exterior.png" id="2_r"]
+[ext_resource type="PackedScene" uid="uid://bcn3pe2d1dhn0" path="res://scenes/player.tscn" id="3_r"]
+[ext_resource type="Texture2D" uid="uid://dag68vkox7tnc" path="res://art/tree_big.png" id="4_r"]
+[ext_resource type="Texture2D" uid="uid://v2hjq0p826kb" path="res://art/tree_small.png" id="5_r"]
+[ext_resource type="Texture2D" uid="uid://d0epwnltpiyev" path="res://art/lamp.png" id="6_r"]
+[ext_resource type="Texture2D" uid="uid://deqcj3kothc88" path="res://art/bench.png" id="7_r"]
+[ext_resource type="PackedScene" uid="uid://cy3xui7ew0kib" path="res://ui/hud.tscn" id="8_r"]
 [ext_resource type="PackedScene" path="res://ui/pause_menu.tscn" id="9_pm"]
 
 [sub_resource type="RectangleShape2D" id="rect_1"]
@@ -46,122 +46,122 @@ size = Vector2(24, 4)
 [sub_resource type="RectangleShape2D" id="rect_12"]
 size = Vector2(18, 6)
 
-[node name="Exterior" type="Node2D"]
+[node name="Exterior" type="Node2D" unique_id=1476662328]
 script = ExtResource("1_r")
 location_name = "CAMPUS QUAD"
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="." unique_id=557854379]
 texture = ExtResource("2_r")
 centered = false
 
-[node name="Walls" type="StaticBody2D" parent="."]
+[node name="Walls" type="StaticBody2D" parent="." unique_id=791683775]
 
-[node name="BuildingLeft" type="CollisionShape2D" parent="Walls"]
-position = Vector2(75.0, 67.0)
+[node name="BuildingLeft" type="CollisionShape2D" parent="Walls" unique_id=1890559913]
+position = Vector2(75, 67)
 shape = SubResource("rect_1")
 
-[node name="BuildingRight" type="CollisionShape2D" parent="Walls"]
-position = Vector2(245.0, 67.0)
+[node name="BuildingRight" type="CollisionShape2D" parent="Walls" unique_id=848334638]
+position = Vector2(245, 67)
 shape = SubResource("rect_2")
 
-[node name="DoorFrame" type="CollisionShape2D" parent="Walls"]
-position = Vector2(160.0, 63.0)
+[node name="DoorFrame" type="CollisionShape2D" parent="Walls" unique_id=1492728299]
+position = Vector2(160, 63)
 shape = SubResource("rect_3")
 
-[node name="EdgeLeft" type="CollisionShape2D" parent="Walls"]
-position = Vector2(-5.0, 95.0)
+[node name="EdgeLeft" type="CollisionShape2D" parent="Walls" unique_id=201502211]
+position = Vector2(-5, 95)
 shape = SubResource("rect_4")
 
-[node name="EdgeRight" type="CollisionShape2D" parent="Walls"]
-position = Vector2(325.0, 95.0)
+[node name="EdgeRight" type="CollisionShape2D" parent="Walls" unique_id=1240447063]
+position = Vector2(325, 95)
 shape = SubResource("rect_5")
 
-[node name="EdgeBottom" type="CollisionShape2D" parent="Walls"]
-position = Vector2(160.0, 185.0)
+[node name="EdgeBottom" type="CollisionShape2D" parent="Walls" unique_id=1401592526]
+position = Vector2(160, 185)
 shape = SubResource("rect_6")
 
-[node name="World" type="Node2D" parent="."]
+[node name="World" type="Node2D" parent="." unique_id=1092279173]
 y_sort_enabled = true
 
-[node name="Player" parent="World" instance=ExtResource("3_r")]
+[node name="Player" parent="World" unique_id=1802836389 instance=ExtResource("3_r")]
 position = Vector2(160, 174)
 
-[node name="BigTree" type="StaticBody2D" parent="World"]
+[node name="BigTree" type="StaticBody2D" parent="World" unique_id=292917473]
 position = Vector2(30, 174)
 
-[node name="Sprite" type="Sprite2D" parent="World/BigTree"]
+[node name="Sprite" type="Sprite2D" parent="World/BigTree" unique_id=1977323826]
 texture = ExtResource("4_r")
 centered = false
 offset = Vector2(-30, -81)
 
-[node name="Shape" type="CollisionShape2D" parent="World/BigTree"]
-position = Vector2(0, -2.0)
+[node name="Shape" type="CollisionShape2D" parent="World/BigTree" unique_id=570833139]
+position = Vector2(0, -2)
 shape = SubResource("rect_7")
 
-[node name="SmallTree" type="StaticBody2D" parent="World"]
+[node name="SmallTree" type="StaticBody2D" parent="World" unique_id=41001778]
 position = Vector2(296, 172)
 
-[node name="Sprite" type="Sprite2D" parent="World/SmallTree"]
+[node name="Sprite" type="Sprite2D" parent="World/SmallTree" unique_id=1298073889]
 texture = ExtResource("5_r")
 centered = false
 offset = Vector2(-20, -55)
 
-[node name="Shape" type="CollisionShape2D" parent="World/SmallTree"]
+[node name="Shape" type="CollisionShape2D" parent="World/SmallTree" unique_id=402100001]
 position = Vector2(0, -1.5)
 shape = SubResource("rect_8")
 
-[node name="LampLeft" type="StaticBody2D" parent="World"]
+[node name="LampLeft" type="StaticBody2D" parent="World" unique_id=9827900]
 position = Vector2(104, 147)
 
-[node name="Sprite" type="Sprite2D" parent="World/LampLeft"]
+[node name="Sprite" type="Sprite2D" parent="World/LampLeft" unique_id=817030447]
 texture = ExtResource("6_r")
 centered = false
 offset = Vector2(-5, -32)
 
-[node name="Shape" type="CollisionShape2D" parent="World/LampLeft"]
+[node name="Shape" type="CollisionShape2D" parent="World/LampLeft" unique_id=2048494568]
 position = Vector2(0, -1.5)
 shape = SubResource("rect_9")
 
-[node name="LampRight" type="StaticBody2D" parent="World"]
+[node name="LampRight" type="StaticBody2D" parent="World" unique_id=270462239]
 position = Vector2(216, 147)
 
-[node name="Sprite" type="Sprite2D" parent="World/LampRight"]
+[node name="Sprite" type="Sprite2D" parent="World/LampRight" unique_id=153359844]
 texture = ExtResource("6_r")
 centered = false
 offset = Vector2(-5, -32)
 
-[node name="Shape" type="CollisionShape2D" parent="World/LampRight"]
+[node name="Shape" type="CollisionShape2D" parent="World/LampRight" unique_id=180282729]
 position = Vector2(0, -1.5)
 shape = SubResource("rect_10")
 
-[node name="Bench" type="StaticBody2D" parent="World"]
+[node name="Bench" type="StaticBody2D" parent="World" unique_id=1460411028]
 position = Vector2(262, 146)
 
-[node name="Sprite" type="Sprite2D" parent="World/Bench"]
+[node name="Sprite" type="Sprite2D" parent="World/Bench" unique_id=2126379564]
 texture = ExtResource("7_r")
 centered = false
 offset = Vector2(-14, -13)
 
-[node name="Shape" type="CollisionShape2D" parent="World/Bench"]
-position = Vector2(0, -2.0)
+[node name="Shape" type="CollisionShape2D" parent="World/Bench" unique_id=1339569316]
+position = Vector2(0, -2)
 shape = SubResource("rect_11")
 
-[node name="DoorTrigger" type="Area2D" parent="."]
-position = Vector2(160.0, 129.0)
+[node name="DoorTrigger" type="Area2D" parent="." unique_id=1292372314]
+position = Vector2(160, 129)
 
-[node name="Shape" type="CollisionShape2D" parent="DoorTrigger"]
+[node name="Shape" type="CollisionShape2D" parent="DoorTrigger" unique_id=1035786094]
 shape = SubResource("rect_12")
 
-[node name="Spawns" type="Node2D" parent="."]
+[node name="Spawns" type="Node2D" parent="." unique_id=351783810]
 
-[node name="start" type="Marker2D" parent="Spawns"]
+[node name="start" type="Marker2D" parent="Spawns" unique_id=1853052511]
 position = Vector2(160, 174)
 metadata/facing = 3
 
-[node name="from_lobby" type="Marker2D" parent="Spawns"]
+[node name="from_lobby" type="Marker2D" parent="Spawns" unique_id=1638938786]
 position = Vector2(160, 144)
 metadata/facing = 0
 
-[node name="HUD" parent="." instance=ExtResource("8_r")]
+[node name="HUD" parent="." unique_id=311790856 instance=ExtResource("8_r")]
 
-[node name="PauseMenu" parent="." instance=ExtResource("9_pm")]
+[node name="PauseMenu" parent="." unique_id=1302188484 instance=ExtResource("9_pm")]

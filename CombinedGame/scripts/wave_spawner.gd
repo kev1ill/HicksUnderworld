@@ -33,21 +33,21 @@ func _ready() -> void:
 		# Level 2: bigger waves, orcs from wave 2, more warriors late.
 		waves = [
 			[[goblin, 5]],                                              # 1
-			[[goblin, 6], [masked_orc, 1]],                             # 2  reward
-			[[goblin, 5], [masked_orc, 3]],                             # 3
-			[[goblin, 4], [masked_orc, 4], [orc_warrior, 1]],           # 4
-			[[goblin, 3], [masked_orc, 4], [orc_warrior, 2]],           # 5  reward
-			[[masked_orc, 5], [orc_warrior, 2]],                        # 6
-			[[goblin, 5], [masked_orc, 4], [orc_warrior, 3]],           # 7  reward
-			[[masked_orc, 6], [orc_warrior, 3]],                        # 8
-			[[goblin, 4], [masked_orc, 5], [orc_warrior, 4]],           # 9
-			[[masked_orc, 6], [orc_warrior, 4]],                        # 10 placeholder for the boss
+			#[[goblin, 6], [masked_orc, 1]],                             # 2  reward
+			#[[goblin, 5], [masked_orc, 3]],                             # 3
+			#[[goblin, 4], [masked_orc, 4], [orc_warrior, 1]],           # 4
+			#[[goblin, 3], [masked_orc, 4], [orc_warrior, 2]],           # 5  reward
+			#[[masked_orc, 5], [orc_warrior, 2]],                        # 6
+			#[[goblin, 5], [masked_orc, 4], [orc_warrior, 3]],           # 7  reward
+			#[[masked_orc, 6], [orc_warrior, 3]],                        # 8
+			#[[goblin, 4], [masked_orc, 5], [orc_warrior, 4]],           # 9
+			#[[masked_orc, 6], [orc_warrior, 4]],                        # 10 placeholder for the boss
 		]
 		return
 	waves = [
 		[[goblin, 3]],                                              # 1
-		#[[goblin, 5]],                                              # 2  reward
-		#[[goblin, 4], [masked_orc, 1]],                             # 3  tier 2 appears
+		[[goblin, 5]],                                              # 2  reward
+		[[goblin, 4], [masked_orc, 1]],                             # 3  tier 2 appears
 		#[[goblin, 3], [masked_orc, 3]],                             # 4
 		#[[goblin, 2], [masked_orc, 3], [orc_warrior, 1]],           # 5  tier 3, big reward
 		#[[goblin, 4], [masked_orc, 3], [orc_warrior, 1]],           # 6
