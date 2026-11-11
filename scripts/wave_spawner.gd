@@ -47,9 +47,9 @@ func _ready() -> void:
 	waves = [
 		[[goblin, 3]],                                              # 1
 		[[goblin, 5]],                                              # 2  reward
-		#[[goblin, 4], [masked_orc, 1]],                             # 3  tier 2 appears
-		#[[goblin, 3], [masked_orc, 3]],                             # 4
-		#[[goblin, 2], [masked_orc, 3], [orc_warrior, 1]],           # 5  tier 3, big reward
+		[[goblin, 4], [masked_orc, 1]],                             # 3  tier 2 appears
+		[[goblin, 3], [masked_orc, 3]],                             # 4
+		[[goblin, 2], [masked_orc, 3], [orc_warrior, 1]],           # 5  tier 3, big reward
 		#[[goblin, 4], [masked_orc, 3], [orc_warrior, 1]],           # 6
 		#[[masked_orc, 4], [orc_warrior, 2]],                        # 7  shaman slot later
 		#[[goblin, 4], [masked_orc, 4], [orc_warrior, 2]],           # 8

@@ -177,8 +177,11 @@ func _on_died() -> void:
 	# "await" pauses this function until the timer finishes, without freezing
 	# the game. Execution resumes here after 1.25 seconds.
 	await get_tree().create_timer(1.25).timeout
-	# Restart the whole scene from scratch.
-	get_tree().reload_current_scene()
+	
+	#Restart the whole scene from scratch.
+	#get_tree().reload_current_scene()
+	
+	Game.go_to(Game.LOBBY, "from_hall")
 
 
 func heal(amount: int) -> bool:
@@ -192,8 +195,8 @@ func equip_weapon(data: WeaponData) -> void:
 	swing_arc = data.swing_arc
 	attack_cooldown = data.cooldown
 	weapon_damage = data.damage
-	#the offset keeps the handle at the pivot, it moves the image up by half its height, so its bottom edge sits at the origin
 	sword_sprite.texture = data.texture
+	#the offset keeps the handle at the pivot, it moves the image up by half its height, so its bottom edge sits at the origin
 	sword_sprite.offset = Vector2(0.0, -data.texture.get_height() / 2.0)
 	#Resize the hitbox, set its length, then center it along the blade.
 	var rect := sword_shape.shape as RectangleShape2D

@@ -178,6 +178,7 @@ sources/0 = SubResource("TileSetAtlasSource_my81p")
 [node name="Dungeon" type="Node2D" unique_id=1390571155]
 script = ExtResource("1_kun6q")
 next_level_scene = "res://scenes/dungeon2.tscn"
+level_title = "LEVEL 1 -  HICKS BASEMENT"
 
 [node name="Floor" type="TileMapLayer" parent="." unique_id=197655762]
 position = Vector2(8, 0)
@@ -241,8 +242,9 @@ goblin = ExtResource("10_kun6q")
 masked_orc = ExtResource("11_uag5o")
 orc_warrior = ExtResource("12_jqckn")
 
-[node name="RewardManager" type="Node" parent="." unique_id=1189691849]
+[node name="RewardManager" type="Node" parent="." unique_id=1189691849 node_paths=PackedStringArray("spawner")]
 script = ExtResource("13_jqckn")
+spawner = NodePath("../WaveSpawner")
 weapons = Array[ExtResource("14_v3ata")]([ExtResource("15_uj8uw"), ExtResource("16_k21r5"), ExtResource("17_5grt3"), ExtResource("18_ou4rh"), ExtResource("19_tkvb4")])
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1804579145]

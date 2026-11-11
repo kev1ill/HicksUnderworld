@@ -263,6 +263,7 @@ spawn_interval = 0.35
 time_between_waves = 3.0
 hard_mode = true
 
-[node name="RewardManager" type="Node" parent="." unique_id=1189691849]
+[node name="RewardManager" type="Node" parent="." unique_id=1189691849 node_paths=PackedStringArray("spawner")]
 script = ExtResource("14_eexwg")
+spawner = NodePath("../WaveSpawner")
 weapons = Array[ExtResource("15_u8io7")]([ExtResource("16_ynjoq"), ExtResource("17_uklki"), ExtResource("18_sfj0y"), ExtResource("19_f3rfd"), ExtResource("20_c5so4")])

@@ -3,6 +3,8 @@ extends Node
 
 signal reward_given(text: String)
 
+@export var spawner: Node
+
 @export var weapons: Array[WeaponData] = []
 @export var health_bonus: int = 2
 @export var buff_multiplier: float = 1.4
@@ -14,9 +16,18 @@ var reward_table := {
 	5: [.7, .2],
 	7: [.8, .1]
 } 
+
 #Position in the weapons list, 0 is rusty sword
 var weapon_index := 0
 var player
+
+func _ready() -> void:
+	if spawner.hard_mode: 
+		reward_table = {
+		#2: [.8, .05],
+		5: [.7, .2],
+		7: [.8, .1]
+		}
 
 #called by the dungeon to give the player the rusty sword at the start
 # On Level 2 this restores the weapon / health earned in Level 1,
