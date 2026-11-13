@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://bjdyy4ec0rydb"]
+
+[ext_resource type="Script" uid="uid://c0pihlkvlbxj6" path="res://scripts/enemy.gd" id="1_n2bd0"]
+[ext_resource type="Texture2D" uid="uid://dggtrlx6ddms5" path="res://assets/frames/ogre_idle_anim_f0.png" id="2_i7lmq"]
+[ext_resource type="Texture2D" uid="uid://dv5gtof4awy7g" path="res://assets/frames/ogre_idle_anim_f1.png" id="3_l8bpt"]
+[ext_resource type="Texture2D" uid="uid://dx8rvvqjwyfm1" path="res://assets/frames/ogre_idle_anim_f2.png" id="4_tw78w"]
+[ext_resource type="Texture2D" uid="uid://mt3en2bnsq18" path="res://assets/frames/ogre_idle_anim_f3.png" id="5_an4vi"]
+[ext_resource type="Texture2D" uid="uid://ckr63rjv7wal2" path="res://assets/frames/ogre_run_anim_f0.png" id="6_h3np5"]
+[ext_resource type="Texture2D" uid="uid://xyrp2moii0py" path="res://assets/frames/ogre_run_anim_f1.png" id="7_rh2hs"]
+[ext_resource type="Texture2D" uid="uid://cwgmv6bjk0hxo" path="res://assets/frames/ogre_run_anim_f2.png" id="8_wi7ih"]
+[ext_resource type="Texture2D" uid="uid://dtoesyw4eqkas" path="res://assets/frames/ogre_run_anim_f3.png" id="9_voin1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_335ti"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_i7lmq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_l8bpt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_tw78w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_an4vi")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_h3np5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_rh2hs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_wi7ih")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_voin1")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 10.0
+}]
+
+[node name="Ogre" type="Node2D" unique_id=1783455434]
+script = ExtResource("1_n2bd0")
+tier = 5
+contact_damage = 6
+hit_cooldown = 1.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1448063187]
+sprite_frames = SubResource("SpriteFrames_335ti")
+animation = &"run"
+frame_progress = 0.041561194

@@ -34,13 +34,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if not is_instance_valid(player):
 		return
-	var distance := global_position.distance_to(player.global_position)
-	#1 when far away, shrinking to 0 as the enemy gets within about 24 pixels
-	var offset_scale := clampf((distance - 24.0) / 80.0, 0.0, 1.0)
-	#The aim point: the player's position plus an offset on this enemy's chosen side
-	#As offset_scale shrinks, the aim point slides onto the player.
-	var target := player.global_position + Vector2.from_angle(flank_angle) * flank_radius * offset_scale
-	var dir := global_position.direction_to(target)
+	var dir := _get_move_direction()
 	velocity = dir * speed + knockback
 	knockback = knockback.move_toward(Vector2.ZERO, 500.0 * delta)
 	move_and_slide()
@@ -56,6 +50,15 @@ func _physics_process(delta: float) -> void:
 			if hurtbox_target.has_method("take_hit"):
 				hurtbox_target.take_hit(contact_damage, global_position)
 				cooldown = hit_cooldown
+				
+func _get_move_direction() -> Vector2:
+	var distance := global_position.distance_to(player.global_position)
+	#1 when far away, shrinking to 0 as the enemy gets within about 24 pixels
+	var offset_scale := clampf((distance - 24.0) / 80.0, 0.0, 1.0)
+	#The aim point: the player's position plus an offset on this enemy's chosen side
+	#As offset_scale shrinks, the aim point slides onto the player.
+	var target := player.global_position + Vector2.from_angle(flank_angle) * flank_radius * offset_scale
+	return global_position.direction_to(target)
 
 func take_hit(amount: int, from: Vector2) -> void:
 	knockback = from.direction_to(global_position) * knockback_strength

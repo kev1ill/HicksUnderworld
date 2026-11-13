@@ -50,7 +50,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ik31s"]
-size = Vector2(9, 2)
+size = Vector2(10.5, 3)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ticvn"]
 size = Vector2(12, 17)
@@ -72,7 +72,7 @@ animation = &"idle"
 offset = Vector2(0, -8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1994497402]
-position = Vector2(0.5, -1)
+position = Vector2(1, 2)
 shape = SubResource("RectangleShape2D_ik31s")
 
 [node name="Health" type="Node" parent="." unique_id=622766809]
