@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://cy3xui7ew0kib"]
+
+[ext_resource type="Script" uid="uid://dmjq0aa5froms" path="res://scripts/hud.gd" id="1_hud"]
+
+[node name="HUD" type="CanvasLayer" unique_id=698649517 groups=["hud"]]
+layer = 10
+script = ExtResource("1_hud")
+
+[node name="Banner" type="PanelContainer" parent="." unique_id=1236198281]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 6.0
+offset_bottom = 6.0
+grow_horizontal = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Banner" unique_id=1489754240]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.97, 0.62, 0.28, 1)
+text = "LOCATION"
+horizontal_alignment = 1
+
+[node name="Hint" type="Label" parent="." unique_id=518951979]
+offset_left = 6.0
+offset_top = 24.0
+offset_right = 314.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(1, 0.96, 0.9, 1)
+theme_override_colors/font_shadow_color = Color(0.07, 0.06, 0.07, 0.85)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+text = "WASD / ARROWS: MOVE    E: INTERACT"
+horizontal_alignment = 1
+
+[node name="Prompt" type="PanelContainer" parent="." unique_id=40677993]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -24.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Prompt" unique_id=1509554566]
+layout_mode = 2
+text = "E: INTERACT"
+horizontal_alignment = 1
+
+[node name="Dialog" type="PanelContainer" parent="." unique_id=1283569415]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -52.0
+offset_right = -8.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBox" type="VBoxContainer" parent="Dialog" unique_id=376172771]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="Name" type="Label" parent="Dialog/VBox" unique_id=1167503396]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.97, 0.62, 0.28, 1)
+text = "NAME"
+
+[node name="Text" type="Label" parent="Dialog/VBox" unique_id=495780902]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_vertical = 3
+text = "DIALOG TEXT"
+autowrap_mode = 3
+
+[node name="Next" type="Label" parent="Dialog/VBox" unique_id=67066688]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.55, 0.52, 0.5, 1)
+text = "[E] NEXT"
+horizontal_alignment = 2
+
+[node name="Menu" type="PanelContainer" parent="." unique_id=1048207237]
+offset_right = 68.0
+offset_bottom = 33.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Menu" unique_id=629247321]
+layout_mode = 2
+text = "Press ESC 
+for menu"

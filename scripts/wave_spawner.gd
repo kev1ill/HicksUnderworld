@@ -12,6 +12,7 @@ signal all_waves_cleared
 @export var goblin: PackedScene 
 @export var masked_orc: PackedScene
 @export var orc_warrior: PackedScene
+@export var zombie_boss: PackedScene
 @export var spawn_interval: float = 0.5
 #amount of seconds between the round ending and starting
 @export var time_between_waves: float = 5.0
@@ -32,7 +33,7 @@ func _ready() -> void:
 	if hard_mode:
 		# Level 2: bigger waves, orcs from wave 2, more warriors late.
 		waves = [
-			[[goblin, 5]],                                              # 1
+			[[zombie_boss, 1]],                                              # 1
 			[[goblin, 6], [masked_orc, 1]],                             # 2  reward
 			[[goblin, 5], [masked_orc, 3]],                             # 3
 			[[goblin, 4], [masked_orc, 4], [orc_warrior, 1]],           # 4
