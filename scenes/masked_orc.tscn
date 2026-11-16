@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://bu0h3gmys5vnw"]
 
 [ext_resource type="Script" uid="uid://c0pihlkvlbxj6" path="res://scripts/enemy.gd" id="1_yt6ws"]
-[ext_resource type="PackedScene" uid="uid://gte3ok3t135m" path="res://scenes/health_flask.tscn" id="2_dycll"]
+[ext_resource type="Script" uid="uid://briio6wu1w6v6" path="res://scripts/health_flask.gd" id="2_dycll"]
+[ext_resource type="Texture2D" uid="uid://mnv5mpajgkx0" path="res://assets/frames/flask_red.png" id="3_l3tsm"]
 [ext_resource type="Texture2D" uid="uid://bp0lkjkaaluhm" path="res://assets/frames/masked_orc_idle_anim_f0.png" id="3_m47pf"]
 [ext_resource type="Texture2D" uid="uid://jrv2gbamhxgj" path="res://assets/frames/masked_orc_idle_anim_f1.png" id="4_l3tsm"]
 [ext_resource type="Texture2D" uid="uid://ck58wl5caqwwj" path="res://assets/frames/masked_orc_idle_anim_f2.png" id="5_wsdw8"]
@@ -11,6 +12,24 @@
 [ext_resource type="Texture2D" uid="uid://ed8re0p1obka" path="res://assets/frames/masked_orc_run_anim_f2.png" id="9_ii66i"]
 [ext_resource type="Texture2D" uid="uid://sda0oq1jt3r6" path="res://assets/frames/masked_orc_run_anim_f3.png" id="10_jndtt"]
 [ext_resource type="Script" uid="uid://fbwie5iyl5bk" path="res://scripts/health.gd" id="11_oo4f7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ik31s"]
+radius = 3.0
+
+[sub_resource type="PackedScene" id="PackedScene_wsdw8"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"id_paths": [PackedInt32Array(), PackedInt32Array()],
+"names": PackedStringArray("HealthFlask", "Area2D", "collision_layer", "collision_mask", "script", "Sprite2D", "Sprite2D", "texture", "CollisionShape2D", "CollisionShape2D", "shape"),
+"node_count": 3,
+"node_ids": PackedInt32Array(1046094792, 1204273313, 405521492),
+"node_paths": [NodePath("."), NodePath(".")],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 3, 2, 0, 3, 1, 4, 2, 0, 1073741824, 0, 6, 5, -1, 1, 7, 3, 0, 1073741825, 0, 9, 8, -1, 1, 10, 4, 0),
+"variants": [0, 8, ExtResource("2_dycll"), ExtResource("3_l3tsm"), SubResource("CircleShape2D_ik31s")],
+"version": 3
+}
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7qjsp"]
 animations = [{
@@ -64,7 +83,7 @@ speed = 25.0
 contact_damage = 2
 hit_cooldown = 0.8
 knockback_strength = 120.0
-drop_scene = ExtResource("2_dycll")
+drop_scene = SubResource("PackedScene_wsdw8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1124149093]
 sprite_frames = SubResource("SpriteFrames_7qjsp")
