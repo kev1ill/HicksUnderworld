@@ -21,6 +21,7 @@
 [ext_resource type="Resource" uid="uid://d2qihy2t4mrct" path="res://resources/red_gem_sword.tres" id="18_sfj0y"]
 [ext_resource type="Resource" uid="uid://b0mmxne1lcjoa" path="res://resources/saw_sword.tres" id="19_f3rfd"]
 [ext_resource type="Resource" uid="uid://bob7dgc7757pj" path="res://resources/anime_sword.tres" id="20_c5so4"]
+[ext_resource type="PackedScene" path="res://ui/pause_menu.tscn" id="21_m71w8"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_m71w8"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -343,3 +344,4 @@ weapons = Array[ExtResource("15_u8io7")]([ExtResource("16_ynjoq"), ExtResource("
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=628642209 groups=["navigation_polygon_source_geometry_grou"]]
 navigation_polygon = SubResource("NavigationPolygon_r4kde")
+[node name="PauseMenu" parent="." unique_id=98527515 instance=ExtResource("21_m71w8")]
