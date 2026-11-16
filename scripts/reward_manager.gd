@@ -24,7 +24,7 @@ var player
 func _ready() -> void:
 	if spawner.hard_mode: 
 		reward_table = {
-		#2: [.8, .05],
+		2: [.8, .1],
 		5: [.7, .2],
 		7: [.8, .1]
 		}

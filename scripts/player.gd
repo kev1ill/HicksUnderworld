@@ -11,6 +11,9 @@ extends CharacterBody2D
 ## Turn this off on the player instance in areas where swinging the sword
 ## shouldn't be allowed (for example the intro).
 @export var combat_enabled := true
+#how many pixels higher the sword pivot sits when attacking upwards
+@export var up_swing_lift: float = 10.0
+
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var health: Health = $Health
@@ -35,6 +38,8 @@ var speed_buff := 1.0
 var _buff_id := 0
 var attack_cooldown: float = 0.35
 var swing_arc: float = 1.2
+#the pivots normal position remembered from the scene so we can restore it
+var pivot_home := Vector2.ZERO
 
 # --- interaction (ported from the intro player) ---
 var _nearby: Array[Interactable] = []
@@ -50,6 +55,8 @@ func _ready() -> void:
 
 	sword_hitbox.body_entered.connect(_on_sword_hit)
 	health.died.connect(_on_died)
+	
+	pivot_home = sword_pivot.position
 
 
 ## Adds an input action bound to a key if it doesn't already exist in the Input Map.
@@ -129,6 +136,9 @@ func _current_target() -> Interactable:
 
 
 func _attack() -> void:
+	sword_pivot.position = pivot_home
+	if attack_dir.y < -.5:
+		sword_pivot.position.y -= up_swing_lift
 	committed = true
 	get_tree().create_timer(commit_time).timeout.connect(func(): committed = false)
 	can_attack = false
