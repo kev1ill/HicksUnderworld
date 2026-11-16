@@ -12,7 +12,7 @@ signal all_waves_cleared
 @export var goblin: PackedScene 
 @export var masked_orc: PackedScene
 @export var orc_warrior: PackedScene
-@export var orc_shaman: PackedScene
+@export var zombie_boss: PackedScene
 @export var spawn_interval: float = 0.5
 #amount of seconds between the round ending and starting
 @export var time_between_waves: float = 5.0
@@ -30,33 +30,51 @@ var alive := 0
 var spawning := false
 
 func _ready() -> void:
-	if hard_mode:
+	match get_parent().name:
 		# Level 2: bigger waves, orcs from wave 2, more warriors late.
-		waves = [
-			[[goblin, 1], [orc_shaman, 1]],                                              # 1
+		
+		"Dungeon3":#Level 3: Bigger waves, more variety of monsters, and boss.
+			waves = [
+			[[goblin, 10]],                                             # 1
+			[[orc_warrior, 6], [masked_orc, 4]],                        # 2  reward
+			[[goblin, 7], [masked_orc, 3]],                             # 3
+			[[masked_orc, 4], [orc_warrior, 1]],                        # 4
+			[[goblin, 3], [masked_orc, 4], [orc_warrior, 2]],           # 5  reward
+			[[masked_orc, 5], [orc_warrior, 2]],                        # 6
+			[[goblin, 5], [masked_orc, 5], [orc_warrior, 5]],           # 7  reward
+			[[masked_orc, 6], [orc_warrior, 6]],                        # 8
+			[[goblin, 10]],                                             # 9
+			[[zombie_boss, 1]],                                         # 10 boss
+		]
+		
+		"Dungeon2": #Level 2: Bigger waves more variety of monsters no boss
+			waves = [
+			[[goblin, 5]],                                              # 1
 			[[goblin, 6], [masked_orc, 1]],                             # 2  reward
 			[[goblin, 5], [masked_orc, 3]],                             # 3
 			[[goblin, 4], [masked_orc, 4], [orc_warrior, 1]],           # 4
 			[[goblin, 3], [masked_orc, 4], [orc_warrior, 2]],           # 5  reward
-			[[masked_orc, 4], [orc_warrior, 2], [orc_shaman, 1]],                        # 6
+			[[masked_orc, 5], [orc_warrior, 2]],                        # 6
 			[[goblin, 5], [masked_orc, 4], [orc_warrior, 3]],           # 7  reward
-			[[masked_orc, 4], [orc_warrior, 2], [orc_shaman, 2]],                        # 8
-			[[goblin, 4], [masked_orc, 5], [orc_warrior, 4], [orc_shaman, 1]],           # 9
+			[[masked_orc, 6], [orc_warrior, 3]],                        # 8
+			[[goblin, 4], [masked_orc, 5], [orc_warrior, 4]],           # 9
 			[[masked_orc, 6], [orc_warrior, 4]],                        # 10 placeholder for the boss
 		]
-		return
-	waves = [
-		[[goblin, 3]],                                              # 1
-		[[goblin, 5]],                                              # 2  reward
-		#[[goblin, 4], [masked_orc, 1]],                             # 3  tier 2 appears
-		#[[goblin, 3], [masked_orc, 3]],                             # 4
-		#[[goblin, 2], [masked_orc, 3], [orc_warrior, 1]],           # 5  tier 3, big reward
-		#[[goblin, 4], [masked_orc, 3], [orc_warrior, 1]],           # 6
-		#[[masked_orc, 4], [orc_warrior, 2]],                        # 7  shaman slot later
-		#[[goblin, 4], [masked_orc, 4], [orc_warrior, 2]],           # 8
-		#[[masked_orc, 4], [orc_warrior, 3]],                        # 9
-		#[[goblin, 4], [masked_orc, 4], [orc_warrior, 3]],           # 10 placeholder for the boss
-	]
+		
+		#return
+		"Dungeon": #Level 1: Small waves easy monsters
+			waves = [
+			[[goblin, 3]],                                              # 1
+			[[goblin, 5]],                                              # 2  reward
+			[[goblin, 4], [masked_orc, 1]],                             # 3  tier 2 appears
+			[[goblin, 3], [masked_orc, 3]],                             # 4
+			[[goblin, 2], [masked_orc, 3], [orc_warrior, 1]],           # 5  tier 3, big reward
+			#[[goblin, 4], [masked_orc, 3], [orc_warrior, 1]],           # 6
+			#[[masked_orc, 4], [orc_warrior, 2]],                        # 7  shaman slot later
+			#[[goblin, 4], [masked_orc, 4], [orc_warrior, 2]],           # 8
+			#[[masked_orc, 4], [orc_warrior, 3]],                        # 9
+			#[[goblin, 4], [masked_orc, 4], [orc_warrior, 3]],           # 10 placeholder for the boss
+		]
 
 func start() -> void:
 	_next_wave()

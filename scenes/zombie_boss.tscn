@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://dmmbrg8vt6ur0"]
+
+[ext_resource type="Script" uid="uid://bwea2og67ygue" path="res://scripts/zombie_boss.gd" id="1_t27l1"]
+[ext_resource type="Texture2D" uid="uid://cjuk0w3kn5gjh" path="res://assets/frames/big_zombie_idle_anim_f0.png" id="2_mujxw"]
+[ext_resource type="Texture2D" uid="uid://c0dy1yx01y26v" path="res://assets/frames/big_zombie_idle_anim_f1.png" id="3_m5i4o"]
+[ext_resource type="Texture2D" uid="uid://dxbik8s37vmw3" path="res://assets/frames/big_zombie_idle_anim_f2.png" id="4_6uab0"]
+[ext_resource type="Texture2D" uid="uid://c6xnu352ftv3g" path="res://assets/frames/big_zombie_idle_anim_f3.png" id="5_f7tcj"]
+[ext_resource type="Texture2D" uid="uid://clal5o84gidu7" path="res://assets/frames/big_zombie_run_anim_f0.png" id="6_msiij"]
+[ext_resource type="Texture2D" uid="uid://cnvligohghf3j" path="res://assets/frames/big_zombie_run_anim_f1.png" id="7_7ma22"]
+[ext_resource type="Texture2D" uid="uid://b5i1vkr06orja" path="res://assets/frames/big_zombie_run_anim_f2.png" id="8_6kkon"]
+[ext_resource type="Texture2D" uid="uid://bbx2a14d4qv7h" path="res://assets/frames/big_zombie_run_anim_f3.png" id="9_ybqbt"]
+[ext_resource type="Script" uid="uid://fbwie5iyl5bk" path="res://scripts/health.gd" id="10_dfde6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bvc7d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_mujxw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_m5i4o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6uab0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_f7tcj")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_msiij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_7ma22")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_6kkon")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ybqbt")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p6klv"]
+size = Vector2(26, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1fjgq"]
+size = Vector2(28, 41)
+
+[node name="ZombieBoss" type="CharacterBody2D" unique_id=517459205]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_t27l1")
+metadata/_custom_type_script = "uid://c0pihlkvlbxj6"
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1507629843]
+scale = Vector2(1.75, 1.75)
+sprite_frames = SubResource("SpriteFrames_bvc7d")
+animation = &"run"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=676553216]
+position = Vector2(0, 20.5)
+shape = SubResource("RectangleShape2D_p6klv")
+
+[node name="Health" type="Node" parent="." unique_id=233313699]
+script = ExtResource("10_dfde6")
+metadata/_custom_type_script = "uid://fbwie5iyl5bk"
+
+[node name="ContactArea" type="Area2D" parent="." unique_id=768039929]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ContactArea" unique_id=2082542283]
+position = Vector2(0, 9.5)
+shape = SubResource("RectangleShape2D_1fjgq")
