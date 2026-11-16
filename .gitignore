@@ -1,10 +1,21 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+# Godot 4+ specific ignores
+.godot/
+/android/
+*.translation
+export.cfg
+export_credentials.cfg
+=======
+>>>>>>> 286402327458deec85989184163bc0a5752ae098
 .godot/
 *.tmp
 /android/
 
 # Summer Engine local-only state (SummerGit, caches, locks)
 .summer/local/
+<<<<<<< HEAD
 =======
 # Godot 4+ specific ignores
 .godot/
@@ -13,3 +24,6 @@
 export.cfg
 export_credentials.cfg
 >>>>>>> origin/kevin_feature_branch
+=======
+>>>>>>> 36f373d20041e16884a414ed4d1815bd81549632
+>>>>>>> 286402327458deec85989184163bc0a5752ae098
