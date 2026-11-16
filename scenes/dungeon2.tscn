@@ -342,6 +342,12 @@ script = ExtResource("14_eexwg")
 spawner = NodePath("../WaveSpawner")
 weapons = Array[ExtResource("15_u8io7")]([ExtResource("16_ynjoq"), ExtResource("17_uklki"), ExtResource("18_sfj0y"), ExtResource("19_f3rfd"), ExtResource("20_c5so4")])
 
+<<<<<<< HEAD
 [node name="PauseMenu" parent="." unique_id=98527515 instance=ExtResource("21_m71w8")]
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=628642209 groups=["navigation_polygon_source_geometry_grou"]]
 navigation_polygon = SubResource("NavigationPolygon_r4kde")
+=======
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=628642209 groups=["navigation_polygon_source_geometry_grou"]]
+navigation_polygon = SubResource("NavigationPolygon_r4kde")
+[node name="PauseMenu" parent="." unique_id=98527515 instance=ExtResource("21_m71w8")]
+>>>>>>> 92e1a3a0bb477d43977d05af03d80ff99dffd7c5
