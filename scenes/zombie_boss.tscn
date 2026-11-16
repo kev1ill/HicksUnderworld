@@ -1,31 +1,31 @@
 [gd_scene format=3 uid="uid://dmmbrg8vt6ur0"]
 
-[ext_resource type="Script" uid="uid://c0pihlkvlbxj6" path="res://scripts/enemy.gd" id="1_8afia"]
-[ext_resource type="PackedScene" uid="uid://gte3ok3t135m" path="res://scenes/health_flask.tscn" id="2_i88iw"]
-[ext_resource type="Texture2D" uid="uid://cjuk0w3kn5gjh" path="res://assets/frames/big_zombie_idle_anim_f0.png" id="3_xiknm"]
-[ext_resource type="Texture2D" uid="uid://c0dy1yx01y26v" path="res://assets/frames/big_zombie_idle_anim_f1.png" id="4_hh36j"]
-[ext_resource type="Texture2D" uid="uid://dxbik8s37vmw3" path="res://assets/frames/big_zombie_idle_anim_f2.png" id="5_iqo0n"]
-[ext_resource type="Texture2D" uid="uid://c6xnu352ftv3g" path="res://assets/frames/big_zombie_idle_anim_f3.png" id="6_030im"]
-[ext_resource type="Texture2D" uid="uid://clal5o84gidu7" path="res://assets/frames/big_zombie_run_anim_f0.png" id="7_6eu2p"]
-[ext_resource type="Texture2D" uid="uid://cnvligohghf3j" path="res://assets/frames/big_zombie_run_anim_f1.png" id="8_yjb2p"]
-[ext_resource type="Texture2D" uid="uid://b5i1vkr06orja" path="res://assets/frames/big_zombie_run_anim_f2.png" id="9_2jk6c"]
-[ext_resource type="Texture2D" uid="uid://bbx2a14d4qv7h" path="res://assets/frames/big_zombie_run_anim_f3.png" id="10_ng5hc"]
-[ext_resource type="Script" uid="uid://fbwie5iyl5bk" path="res://scripts/health.gd" id="11_q7tpx"]
+[ext_resource type="Script" uid="uid://c0pihlkvlbxj6" path="res://scripts/enemy.gd" id="1_mujxw"]
+[ext_resource type="PackedScene" uid="uid://gte3ok3t135m" path="res://scenes/health_flask.tscn" id="2_m5i4o"]
+[ext_resource type="Texture2D" uid="uid://cjuk0w3kn5gjh" path="res://assets/frames/big_zombie_idle_anim_f0.png" id="3_6uab0"]
+[ext_resource type="Texture2D" uid="uid://c0dy1yx01y26v" path="res://assets/frames/big_zombie_idle_anim_f1.png" id="4_f7tcj"]
+[ext_resource type="Texture2D" uid="uid://dxbik8s37vmw3" path="res://assets/frames/big_zombie_idle_anim_f2.png" id="5_msiij"]
+[ext_resource type="Texture2D" uid="uid://c6xnu352ftv3g" path="res://assets/frames/big_zombie_idle_anim_f3.png" id="6_7ma22"]
+[ext_resource type="Texture2D" uid="uid://clal5o84gidu7" path="res://assets/frames/big_zombie_run_anim_f0.png" id="7_6kkon"]
+[ext_resource type="Texture2D" uid="uid://cnvligohghf3j" path="res://assets/frames/big_zombie_run_anim_f1.png" id="8_ybqbt"]
+[ext_resource type="Texture2D" uid="uid://b5i1vkr06orja" path="res://assets/frames/big_zombie_run_anim_f2.png" id="9_dfde6"]
+[ext_resource type="Texture2D" uid="uid://bbx2a14d4qv7h" path="res://assets/frames/big_zombie_run_anim_f3.png" id="10_46nm6"]
+[ext_resource type="Script" uid="uid://fbwie5iyl5bk" path="res://scripts/health.gd" id="11_538bb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e86g1"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_xiknm")
+"texture": ExtResource("3_6uab0")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_hh36j")
+"texture": ExtResource("4_f7tcj")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_iqo0n")
+"texture": ExtResource("5_msiij")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_030im")
+"texture": ExtResource("6_7ma22")
 }],
 "loop": 1,
 "name": &"idle",
@@ -33,16 +33,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_6eu2p")
+"texture": ExtResource("7_6kkon")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_yjb2p")
+"texture": ExtResource("8_ybqbt")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_2jk6c")
+"texture": ExtResource("9_dfde6")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_ng5hc")
+"texture": ExtResource("10_46nm6")
 }],
 "loop": 1,
 "name": &"run",
@@ -58,12 +58,14 @@ height = 52.0
 
 [node name="ZombieBoss" type="CharacterBody2D" unique_id=1846479542]
 collision_layer = 4
-collision_mask = 9
-script = ExtResource("1_8afia")
+collision_mask = 5
+script = ExtResource("1_mujxw")
 tier = 3
-speed = 15.0
-contact_damage = 2
-drop_scene = ExtResource("2_i88iw")
+speed = 20.0
+contact_damage = 5
+hit_cooldown = 1.5
+knockback_strength = 75.0
+drop_scene = ExtResource("2_m5i4o")
 drop_chance = 1.0
 metadata/_custom_type_script = "uid://c0pihlkvlbxj6"
 metadata/_edit_group_ = true
@@ -78,11 +80,14 @@ position = Vector2(-0.5, 26.5)
 shape = SubResource("RectangleShape2D_jjyxe")
 
 [node name="Health" type="Node" parent="." unique_id=375994910]
-script = ExtResource("11_q7tpx")
+script = ExtResource("11_538bb")
+max_health = 15
 metadata/_custom_type_script = "uid://fbwie5iyl5bk"
 
-[node name="Area2D" type="Area2D" parent="." unique_id=2008008424]
+[node name="ContactArea" type="Area2D" parent="." unique_id=2008008424]
+collision_layer = 0
+collision_mask = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1792345470]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ContactArea" unique_id=1792345470]
 position = Vector2(0, 10)
 shape = SubResource("CapsuleShape2D_deip8")

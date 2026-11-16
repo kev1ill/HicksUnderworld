@@ -30,10 +30,24 @@ var alive := 0
 var spawning := false
 
 func _ready() -> void:
-	if hard_mode:
-		# Level 2: bigger waves, orcs from wave 2, more warriors late.
-		waves = [
-			[[zombie_boss, 1]],                                              # 1
+	match get_parent().name:
+		# Level 3: bigger waves, orcs from wave 2, more warriors late, and a boss.
+		"Dungeon3":
+			waves = [
+			[[masked_orc, 7]],                                          # 1
+			[[orc_warrior, 5], [masked_orc, 3]],                        # 2  reward
+			[[goblin, 9]],                                              # 3
+			[[goblin, 4], [masked_orc, 4], [orc_warrior, 1]],           # 4
+			[[goblin, 3], [masked_orc, 4], [orc_warrior, 2]],           # 5  reward
+			[[masked_orc, 5], [orc_warrior, 2]],                        # 6
+			[[goblin, 5], [masked_orc, 4], [orc_warrior, 3]],           # 7  reward
+			[[masked_orc, 6], [orc_warrior, 3]],                        # 8
+			[[goblin, 4], [masked_orc, 5], [orc_warrior, 4]],           # 9
+			[[zombie_boss, 1]],                                         # 10 placeholder for the boss
+		]
+		"Dungeon2": #Level 2: More of the difficult enimies but no boss.
+			waves = [
+			[[goblin, 5]],                                              # 1
 			[[goblin, 6], [masked_orc, 1]],                             # 2  reward
 			[[goblin, 5], [masked_orc, 3]],                             # 3
 			[[goblin, 4], [masked_orc, 4], [orc_warrior, 1]],           # 4
@@ -44,8 +58,9 @@ func _ready() -> void:
 			[[goblin, 4], [masked_orc, 5], [orc_warrior, 4]],           # 9
 			[[masked_orc, 6], [orc_warrior, 4]],                        # 10 placeholder for the boss
 		]
-		return
-	waves = [
+		#return
+		"Dungeon": #level 1: Small amount of enimies and no advanced enimies.
+			waves = [
 		[[goblin, 3]],                                              # 1
 		[[goblin, 5]],                                              # 2  reward
 		[[goblin, 4], [masked_orc, 1]],                             # 3  tier 2 appears

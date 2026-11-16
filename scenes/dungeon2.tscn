@@ -179,6 +179,7 @@ sources/0 = SubResource("TileSetAtlasSource_my81p")
 
 [node name="Dungeon2" type="Node2D" unique_id=1390571155]
 script = ExtResource("1_77ye7")
+next_level_scene = "res://scenes/dungeon3.tscn"
 level_title = "LEVEL 2 - THE DEEP HALLS"
 
 [node name="Floor" type="TileMapLayer" parent="." unique_id=197655762]
@@ -262,7 +263,6 @@ masked_orc = ExtResource("12_j53n1")
 orc_warrior = ExtResource("13_b7qxk")
 spawn_interval = 0.35
 time_between_waves = 3.0
-hard_mode = true
 
 [node name="RewardManager" type="Node" parent="." unique_id=1189691849 node_paths=PackedStringArray("spawner")]
 script = ExtResource("14_eexwg")
