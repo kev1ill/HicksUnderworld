@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://dgys58w3xjbxg"]
+
+[ext_resource type="Texture2D" uid="uid://dggtrlx6ddms5" path="res://assets/frames/ogre_idle_anim_f0.png" id="1_qjgc6"]
+[ext_resource type="Texture2D" uid="uid://dv5gtof4awy7g" path="res://assets/frames/ogre_idle_anim_f1.png" id="2_mdfjq"]
+[ext_resource type="Texture2D" uid="uid://dx8rvvqjwyfm1" path="res://assets/frames/ogre_idle_anim_f2.png" id="3_mvd56"]
+[ext_resource type="Texture2D" uid="uid://mt3en2bnsq18" path="res://assets/frames/ogre_idle_anim_f3.png" id="4_a1rrr"]
+[ext_resource type="Texture2D" uid="uid://ckr63rjv7wal2" path="res://assets/frames/ogre_run_anim_f0.png" id="5_6olfo"]
+[ext_resource type="Texture2D" uid="uid://xyrp2moii0py" path="res://assets/frames/ogre_run_anim_f1.png" id="6_u62b3"]
+[ext_resource type="Texture2D" uid="uid://cwgmv6bjk0hxo" path="res://assets/frames/ogre_run_anim_f2.png" id="7_6qiw2"]
+[ext_resource type="Texture2D" uid="uid://dtoesyw4eqkas" path="res://assets/frames/ogre_run_anim_f3.png" id="8_ygj4h"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o72q2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_qjgc6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_mdfjq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_mvd56")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_a1rrr")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_6olfo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_u62b3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_6qiw2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ygj4h")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 10.0
+}]
+
+[node name="Ogre" type="CharacterBody2D" unique_id=639502748]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2053440152]
+sprite_frames = SubResource("SpriteFrames_o72q2")
+animation = &"run"
+frame_progress = 0.53869796

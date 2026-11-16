@@ -22,6 +22,10 @@ var player: Node2D
 var knockback := Vector2.ZERO
 var cooldown := 0.0
 var flank_angle := 0.0
+# Does the path-finding. It's created in code, so you don't have to add it to every enemy scene.
+var nav_agent: NavigationAgent2D
+# Counts down to the next time we ask for a new path.
+var repath_timer := 0.0
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
@@ -31,23 +35,25 @@ func _ready() -> void:
 	#Pick a random side of the player to approach from (TAU is a full circle)
 	flank_angle = randf() * TAU
 	
+	# Create the path-finding helper and attach it to this enemy.
+	nav_agent = NavigationAgent2D.new()
+	# Consider a waypoint reached when we're within 6 pixels of it.
+	nav_agent.path_desired_distance = 6.0
+	# Same for the final target.
+	nav_agent.target_desired_distance = 6.0
+	add_child(nav_agent)
+	
 func _physics_process(delta: float) -> void:
 	if not is_instance_valid(player):
 		return
-	var distance := global_position.distance_to(player.global_position)
-	#1 when far away, shrinking to 0 as the enemy gets within about 24 pixels
-	var offset_scale := clampf((distance - 24.0) / 80.0, 0.0, 1.0)
-	#The aim point: the player's position plus an offset on this enemy's chosen side
-	#As offset_scale shrinks, the aim point slides onto the player.
-	var target := player.global_position + Vector2.from_angle(flank_angle) * flank_radius * offset_scale
-	var dir := global_position.direction_to(target)
+	var dir := _get_move_direction()
 	velocity = dir * speed + knockback
 	knockback = knockback.move_toward(Vector2.ZERO, 500.0 * delta)
 	move_and_slide()
 	
 	#flip the enemy sprite if the player is to the left
 	sprite.flip_h = player.global_position.x < global_position.x
-	sprite.play("run")
+	sprite.play("run" if dir != Vector2.ZERO else "idle")
 	
 	cooldown = max(cooldown - delta, 0.0)
 	if cooldown == 0.0:
@@ -56,6 +62,15 @@ func _physics_process(delta: float) -> void:
 			if hurtbox_target.has_method("take_hit"):
 				hurtbox_target.take_hit(contact_damage, global_position)
 				cooldown = hit_cooldown
+				
+func _get_move_direction() -> Vector2:
+	var distance := global_position.distance_to(player.global_position)
+	#1 when far away, shrinking to 0 as the enemy gets within about 24 pixels
+	var offset_scale := clampf((distance - 24.0) / 80.0, 0.0, 1.0)
+	#The aim point: the player's position plus an offset on this enemy's chosen side
+	#As offset_scale shrinks, the aim point slides onto the player.
+	var target := player.global_position + Vector2.from_angle(flank_angle) * flank_radius * offset_scale
+	return _direction_to(target)
 
 func take_hit(amount: int, from: Vector2) -> void:
 	knockback = from.direction_to(global_position) * knockback_strength
@@ -71,4 +86,20 @@ func _on_died() -> void:
 	
 	#removes the enemy from the scene tree
 	queue_free()
+	
+# Returns the direction to walk to reach "point", going around walls if needed.
+func _direction_to(point: Vector2) -> Vector2:
+	# Update the path a few times a second, not every frame, to save work.
+	repath_timer -= get_physics_process_delta_time()
+	if repath_timer <= 0.0:
+		# The agent calculates a route to this point. If the point is inside
+		# a wall, it uses the nearest walkable spot.
+		nav_agent.target_position = point
+		repath_timer = 0.2
+	# If there's no route (the navigation map hasn't loaded yet on the first
+	# frame, or we've arrived), just head straight for the point.
+	if nav_agent.is_navigation_finished():
+		return global_position.direction_to(point)
+	# Otherwise head for the next waypoint along the route.
+	return global_position.direction_to(nav_agent.get_next_path_position())
 	
