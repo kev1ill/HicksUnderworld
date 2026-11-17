@@ -164,6 +164,9 @@ func _end_swing() -> void:
 func _on_sword_hit(area: Area2D) -> void:
 	# The deflect zone and the hurtbox are both children of what we want to affect.
 	var target := area.get_parent()
+	# Never react to our own hurtbox or anything else belonging to the player.
+	if target == self:
+		return
 	# Bolts get destroyed
 	if target.has_method("destroy"):
 		target.destroy()

@@ -37,3 +37,8 @@ func _on_area_entered(area: Area2D) -> void:
 func _draw() -> void:
 	draw_circle(Vector2(0, -8), 4.0, Color(0.1, 0.2, 0.1))
 	draw_circle(Vector2(0, -8), 3.0, Color(0.5, 1.0, 0.4))
+	
+# Called by the player's sword when it hits the deflect zone.
+func destroy() -> void:
+	# queue_free is safe to call from a physics callback, and calling it twice is harmless.
+	queue_free()

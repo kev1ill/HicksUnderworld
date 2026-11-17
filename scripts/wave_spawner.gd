@@ -29,10 +29,10 @@ var spawning := false
 
 func _ready() -> void:
 	match get_parent().name:
-		# Level 2: bigger waves, orcs from wave 2, more warriors late.
+		# Level 2: bigger waves, orcs from wave 2, warriors and shamans
 		"Dungeon2":
 			waves = [
-				[[goblin, 5], [orc_shaman, 2]],                                              # 1
+				[[goblin, 5]],                                              # 1
 				[[goblin, 6], [masked_orc, 1]],                             # 2  reward
 				[[goblin, 5], [masked_orc, 3]],                             # 3
 				[[goblin, 4], [masked_orc, 4], [orc_warrior, 1]],           # 4
