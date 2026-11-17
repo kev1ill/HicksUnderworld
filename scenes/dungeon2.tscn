@@ -14,7 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://bu0h3gmys5vnw" path="res://scenes/masked_orc.tscn" id="12_j53n1"]
 [ext_resource type="PackedScene" uid="uid://bac66lxb36l6j" path="res://scenes/orc_warrior.tscn" id="13_b7qxk"]
 [ext_resource type="Script" uid="uid://s541n6ntomdp" path="res://scripts/reward_manager.gd" id="14_eexwg"]
+[ext_resource type="PackedScene" uid="uid://dmmbrg8vt6ur0" path="res://scenes/zombie_boss.tscn" id="14_u3dkd"]
 [ext_resource type="Script" uid="uid://djn3je26piwqu" path="res://scripts/weapon_data.gd" id="15_u8io7"]
+[ext_resource type="PackedScene" uid="uid://f44sr8gyam5r" path="res://scenes/ogre_boss.tscn" id="15_uvd6r"]
 [ext_resource type="Resource" uid="uid://csbp16klg2v7t" path="res://resources/rusty_sword.tres" id="16_ynjoq"]
 [ext_resource type="Resource" uid="uid://db1m1uaqs43eu" path="res://resources/regular_sword.tres" id="17_uklki"]
 [ext_resource type="Resource" uid="uid://d2qihy2t4mrct" path="res://resources/red_gem_sword.tres" id="18_sfj0y"]
@@ -261,6 +263,8 @@ script = ExtResource("10_lifgv")
 goblin = ExtResource("11_sfvj0")
 masked_orc = ExtResource("12_j53n1")
 orc_warrior = ExtResource("13_b7qxk")
+zombie_boss = ExtResource("14_u3dkd")
+ogre_boss = ExtResource("15_uvd6r")
 spawn_interval = 0.35
 time_between_waves = 3.0
 hard_mode = true

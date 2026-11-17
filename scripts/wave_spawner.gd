@@ -13,6 +13,7 @@ signal all_waves_cleared
 @export var masked_orc: PackedScene
 @export var orc_warrior: PackedScene
 @export var zombie_boss: PackedScene
+@export var ogre_boss: PackedScene
 @export var spawn_interval: float = 0.5
 #amount of seconds between the round ending and starting
 @export var time_between_waves: float = 5.0
@@ -35,7 +36,7 @@ func _ready() -> void:
 		
 		"Dungeon3":#Level 3: Bigger waves, more variety of monsters, and boss.
 			waves = [
-			[[goblin, 10]],                                             # 1
+			[[ogre_boss, 2]],                                             # 1
 			[[orc_warrior, 6], [masked_orc, 4]],                        # 2  reward
 			[[goblin, 7], [masked_orc, 3]],                             # 3
 			[[masked_orc, 4], [orc_warrior, 1]],                        # 4
