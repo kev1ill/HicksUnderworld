@@ -13,3 +13,4 @@ export_credentials.cfg
 # Summer Engine local-only state (SummerGit, caches, locks)
 .summer/local/
 >>>>>>> origin/main
+echo .DS_Store
