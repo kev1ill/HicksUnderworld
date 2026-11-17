@@ -4,13 +4,11 @@ The player begins their quest for the Legendary K Cash on the K College campus q
 
 ## TaskList
 
-- [ ] make a cover image
-- [ ] add enemy: orc shaman
-- [ ] add enemy: orc boss
-- [ ] add audio
-- [ ] bug: enemies get stuck on walls in dungeon 2
-- [ ] bug: player can attack enemies through walls in dungeon 2
-- [ ] bug: player moves in front of objects when they should be behind them in the exterior and lobby scenes
+- [ ] Audio (Collin)
+- [ ] End Scene (Collin)
+- [ ] dungeon3 (Kevin)
+- [ ] ogre (Kevin)
+- [ ] reset weapon and health (Kevin)
 
 ## Run it
 

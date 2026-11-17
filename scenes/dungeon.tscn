@@ -256,4 +256,7 @@ weapons = Array[ExtResource("14_v3ata")]([ExtResource("15_uj8uw"), ExtResource("
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1804579145]
 position = Vector2(8, -21)
 
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=680709601]
+navigation_polygon = SubResource("NavigationPolygon_ea5hl")
+
 [node name="PauseMenu" parent="." unique_id=990881822 instance=ExtResource("20_aumn5")]
