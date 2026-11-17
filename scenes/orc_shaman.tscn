@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://csix2wtpqa0tc"]
 
-[ext_resource type="Script" uid="uid://dxu076vaw68xl" path="res://scenes/shaman.gd" id="1_tslfj"]
+[ext_resource type="Script" uid="uid://dxu076vaw68xl" path="res://scripts/shaman.gd" id="1_tslfj"]
 [ext_resource type="Texture2D" uid="uid://cyhi3lbmw413w" path="res://assets/frames/orc_shaman_idle_anim_f0.png" id="2_10sp6"]
 [ext_resource type="PackedScene" uid="uid://bl8ppo2fhn8d2" path="res://scenes/shaman_projectile.tscn" id="2_e2dwl"]
 [ext_resource type="Texture2D" uid="uid://ye5cnbrq51n4" path="res://assets/frames/orc_shaman_idle_anim_f1.png" id="3_e2dwl"]
@@ -102,7 +102,7 @@ max_health = 3
 metadata/_custom_type_script = "uid://fbwie5iyl5bk"
 
 [node name="ContactArea" type="Area2D" parent="." unique_id=40133603]
-collision_layer = 0
+collision_layer = 16
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ContactArea" unique_id=130626431]

@@ -2,8 +2,7 @@ class_name RewardManager
 extends Node
 
 signal reward_given(text: String)
-
-@export var spawner: Node
+signal weapon_changed(weapon_name: String, tier: int, max_tier: int)
 
 @export var weapons: Array[WeaponData] = []
 @export var health_bonus: int = 2
@@ -11,22 +10,25 @@ signal reward_given(text: String)
 @export var buff_duration: float = 20.0
 
 #waves where the player is rewarded and the chances of each reward
-var reward_table := {
-	2: [.8, .05],
-	5: [.7, .2],
-	7: [.8, .1]
-} 
+var reward_table := {} 
 
 #Position in the weapons list, 0 is rusty sword
 var weapon_index := 0
 var player
 
 func _ready() -> void:
-	if spawner.hard_mode: 
-		reward_table = {
-		2: [.8, .1],
-		5: [.7, .2],
-		7: [.8, .1]
+	match get_parent().name:
+		"Dungeon2": 
+			reward_table = {
+			2: [.8, .1],
+			5: [.7, .2],
+			7: [.8, .1]
+		}
+		"Dungeon":
+			reward_table = {
+			2: [.8, .1],
+			5: [.7, .2],
+			7: [.8, .1]
 		}
 
 #called by the dungeon to give the player the rusty sword at the start
@@ -39,7 +41,7 @@ func setup(p) -> void:
 		weapon_index = clampi(Game.dungeon_weapon_index, 0, weapons.size() - 1)
 		if Game.dungeon_health_bonus > 0:
 			player.health.increase_max(Game.dungeon_health_bonus)
-		player.equip_weapon(weapons[weapon_index])
+		_equip(weapon_index)
 
 func on_wave_cleared(wave: int) -> void:
 	#give a message for every wave
@@ -66,11 +68,23 @@ func _give_reward(wave: int) -> String:
 	var top := weapons.size() - 1
 	if tiers > 0 and weapon_index < top:
 		var old_index := weapon_index
-		weapon_index = mini(weapon_index + tiers, top)
-		player.equip_weapon(weapons[weapon_index])
+		var new_index := mini(weapon_index + tiers, top)
+		_equip(new_index)
 		
 		var big := " (big upgrade!)" if weapon_index - old_index >= 2 else ""
 		return "New Weapon: %s%s\nMax health increased!" % [weapons[weapon_index].display_name, big]
 		
 	player.apply_speed_buff(buff_multiplier, buff_duration)
 	return "Speed Boost!\nMax health increased!"
+	
+# One place that equips a weapon and announces it, so the HUD can't get out of date.
+func _equip(index: int) -> void:
+	weapon_index = index
+	player.equip_weapon(weapons[index])
+	weapon_changed.emit(weapons[index].display_name, index + 1, weapons.size())
+
+# Re-announces the current weapon. The Dungeon calls this once at the start,
+# in case the starting weapon was equipped before the HUD was listening.
+func refresh_weapon_display() -> void:
+	if not weapons.is_empty():
+		weapon_changed.emit(weapons[weapon_index].display_name, weapon_index + 1, weapons.size())

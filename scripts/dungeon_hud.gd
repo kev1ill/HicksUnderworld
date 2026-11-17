@@ -7,6 +7,7 @@ extends CanvasLayer
 @onready var box: HBoxContainer = $HBoxContainer
 @onready var wave_label: Label = $WaveLabel
 @onready var banner: Label = $BannerLabel
+@onready var weapon_label: Label = $WeaponLabel
 
 var _banner_tween: Tween
 
@@ -43,7 +44,7 @@ func show_wave(num: int) -> void:
 	wave_label.text = "Wave %d" % num
 	
 func show_message(text: String) -> void:
-	wave_label.text = text
+	banner.text = text
 	
 func show_banner(text: String, hold_time: float = 2.0) -> void:
 	banner.text = text
@@ -58,4 +59,9 @@ func show_banner(text: String, hold_time: float = 2.0) -> void:
 	_banner_tween = create_tween()
 	_banner_tween.tween_interval(hold_time)
 	_banner_tween.tween_property(banner, "modulate:a", 0.0, 1.0)
+	
+func show_weapon(weapon_name: String, tier: int, max_tier: int) -> void:
+	# Show "MAX" at the top of the ladder, and "Tier 2/5" otherwise.
+	var tier_text := "MAX" if tier == max_tier else "Tier %d" % tier
+	weapon_label.text = "%s (%s)" % [weapon_name, tier_text]
 	

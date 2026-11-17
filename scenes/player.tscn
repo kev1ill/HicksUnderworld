@@ -352,7 +352,6 @@ shape = SubResource("RectangleShape2D_ik31s")
 script = ExtResource("3_qlg0r")
 
 [node name="SwordPivot" type="Node2D" parent="." unique_id=1550325558]
-visible = false
 position = Vector2(0, -8)
 
 [node name="Sprite2D" type="Sprite2D" parent="SwordPivot" unique_id=302305221]
@@ -361,7 +360,7 @@ offset = Vector2(0, -8)
 
 [node name="Hitbox" type="Area2D" parent="SwordPivot" unique_id=764536253]
 collision_layer = 0
-collision_mask = 4
+collision_mask = 48
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SwordPivot/Hitbox" unique_id=805347151]
 position = Vector2(0, -12)

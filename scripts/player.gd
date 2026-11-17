@@ -53,7 +53,7 @@ func _ready() -> void:
 	sword_pivot.visible = false
 	sword_hitbox.monitoring = false
 
-	sword_hitbox.body_entered.connect(_on_sword_hit)
+	sword_hitbox.area_entered.connect(_on_sword_hit)
 	health.died.connect(_on_died)
 	
 	pivot_home = sword_pivot.position
@@ -161,12 +161,19 @@ func _end_swing() -> void:
 	sword_hitbox.monitoring = false
 
 
-func _on_sword_hit(body: Node) -> void:
-	if body in hit_this_swing:
+func _on_sword_hit(area: Area2D) -> void:
+	# The deflect zone and the hurtbox are both children of what we want to affect.
+	var target := area.get_parent()
+	# Bolts get destroyed
+	if target.has_method("destroy"):
+		target.destroy()
 		return
-	hit_this_swing.append(body)
-	if body.has_method("take_hit"):
-		body.take_hit(weapon_damage, global_position)
+	# Enemies: skip any we've already hit during this swing.
+	if target in hit_this_swing:
+		return
+	hit_this_swing.append(target)
+	if target.has_method("take_hit"):
+		target.take_hit(weapon_damage, global_position)
 
 
 func take_hit(amount: int, from: Vector2) -> void:

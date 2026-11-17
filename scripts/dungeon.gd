@@ -23,6 +23,10 @@ func _ready() -> void:
 	$WaveSpawner.start()
 	# Name typed in the Hicks lobby, carried over by the Game autoload.
 	$HUD.show_banner("%s\nWELCOME, %s!" % [level_title, Game.player_name])
+	# Show the weapon name and tier on the HUD whenever it changes.
+	$RewardManager.weapon_changed.connect($HUD.show_weapon)
+	# Show the starting weapon right away.
+	$RewardManager.refresh_weapon_display()
 	
 func _unhandled_input(event: InputEvent) -> void:
 	# Esc leaves the dungeon and returns to the Hicks lobby.
