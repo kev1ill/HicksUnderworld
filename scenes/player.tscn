@@ -361,7 +361,7 @@ offset = Vector2(0, -8)
 
 [node name="Hitbox" type="Area2D" parent="SwordPivot" unique_id=764536253]
 collision_layer = 0
-collision_mask = 4
+collision_mask = 48
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SwordPivot/Hitbox" unique_id=805347151]
 position = Vector2(0, -12)

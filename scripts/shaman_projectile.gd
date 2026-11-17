@@ -11,7 +11,7 @@ var direction := Vector2.RIGHT
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Run _on_body_entered when the bolt touches a wall or the player.
-	body_entered.connect(_on_body_entered)
+	area_entered.connect(_on_area_entered)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -23,10 +23,11 @@ func _physics_process(delta: float) -> void:
 	if lifetime <= 0.0:
 		queue_free()
 		
-func _on_body_entered(body: Node2D) -> void:
+func _on_area_entered(area: Area2D) -> void:
+	var target := area.get_parent()
 	# Walls have no take_hit, so only the player is hurt. The bolt is used up either way.
-	if body.has_method("take_hit"):
-		body.take_hit(damage, global_position)
+	if target.has_method("take_hit"):
+		target.take_hit(damage, global_position)
 	queue_free()
 
 # Draws the bolt in code, so no sprite is needed: a dark outline circle
@@ -36,3 +37,8 @@ func _on_body_entered(body: Node2D) -> void:
 func _draw() -> void:
 	draw_circle(Vector2(0, -8), 4.0, Color(0.1, 0.2, 0.1))
 	draw_circle(Vector2(0, -8), 3.0, Color(0.5, 1.0, 0.4))
+	
+# Called by the player's sword when it hits the deflect zone.
+func destroy() -> void:
+	# queue_free is safe to call from a physics callback, and calling it twice is harmless.
+	queue_free()
