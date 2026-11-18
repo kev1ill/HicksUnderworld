@@ -46,6 +46,8 @@ func _refresh_music() -> void:
 func _on_campus() -> void:
 	get_tree().paused = false
 	hide()
+	Game.dungeon_health_bonus = 0
+	Game.dungeon_weapon_index = 0
 	Game.go_to(Game.EXTERIOR, "start")
 
 
