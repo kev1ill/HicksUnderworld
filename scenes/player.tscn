@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://pklclnt7egjt" path="res://assets/Player.png" id="2_qlg0r"]
 [ext_resource type="Script" uid="uid://fbwie5iyl5bk" path="res://scripts/health.gd" id="3_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://besfmqqv7ye6v" path="res://assets/frames/weapon_rusty_sword.png" id="4_fjrip"]
+[ext_resource type="AudioStream" uid="uid://bumlkpq16ii6r" path="res://music/Bitcade-Free-SFX-Pack-Vol1/WAV/Hit/bitcade_hit_hurt.wav" id="5_qlg0r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hqtel"]
 atlas = ExtResource("2_qlg0r")
@@ -374,3 +375,6 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=12646848]
 position = Vector2(-0.5, -15)
 shape = SubResource("CapsuleShape2D_ik31s")
+
+[node name="BitcadeHitHurt" type="AudioStreamPlayer" parent="Hurtbox" unique_id=837706567]
+stream = ExtResource("5_qlg0r")

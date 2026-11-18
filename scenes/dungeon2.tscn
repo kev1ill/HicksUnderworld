@@ -22,6 +22,7 @@
 [ext_resource type="Resource" uid="uid://b0mmxne1lcjoa" path="res://resources/saw_sword.tres" id="19_f3rfd"]
 [ext_resource type="Resource" uid="uid://bob7dgc7757pj" path="res://resources/anime_sword.tres" id="20_c5so4"]
 [ext_resource type="PackedScene" path="res://ui/pause_menu.tscn" id="21_m71w8"]
+[ext_resource type="AudioStream" uid="uid://8liidg0wnvo" path="res://music/Minifantasy_Dungeon_Music/Music/Goblins_Dance_(Battle).wav" id="23_u3dkd"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_m71w8"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -309,6 +310,7 @@ grow_horizontal = 2
 theme_override_fonts/font = ExtResource("9_4peiy")
 theme_override_font_sizes/font_size = 8
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="SpawnPoints" type="Node2D" parent="." unique_id=1255778375]
 
@@ -353,3 +355,8 @@ weapons = Array[ExtResource("15_u8io7")]([ExtResource("16_ynjoq"), ExtResource("
 navigation_polygon = SubResource("NavigationPolygon_r4kde")
 
 [node name="PauseMenu" parent="." unique_id=98527515 instance=ExtResource("21_m71w8")]
+
+[node name="GoblinsDance(battle)" type="AudioStreamPlayer" parent="." unique_id=43129548]
+process_mode = 3
+stream = ExtResource("23_u3dkd")
+autoplay = true

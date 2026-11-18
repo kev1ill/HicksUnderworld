@@ -21,6 +21,7 @@
 [ext_resource type="Resource" uid="uid://b0mmxne1lcjoa" path="res://resources/saw_sword.tres" id="18_ou4rh"]
 [ext_resource type="Resource" uid="uid://bob7dgc7757pj" path="res://resources/anime_sword.tres" id="19_tkvb4"]
 [ext_resource type="PackedScene" path="res://ui/pause_menu.tscn" id="20_aumn5"]
+[ext_resource type="AudioStream" uid="uid://8liidg0wnvo" path="res://music/Minifantasy_Dungeon_Music/Music/Goblins_Dance_(Battle).wav" id="22_vmt7k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_orq0m"]
 texture = ExtResource("2_7wc3a")
@@ -269,3 +270,8 @@ position = Vector2(8, -21)
 navigation_polygon = SubResource("NavigationPolygon_ea5hl")
 
 [node name="PauseMenu" parent="." unique_id=990881822 instance=ExtResource("20_aumn5")]
+
+[node name="GoblinsDance(battle)" type="AudioStreamPlayer" parent="." unique_id=199888536]
+process_mode = 3
+stream = ExtResource("22_vmt7k")
+autoplay = true
