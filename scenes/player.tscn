@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://yor1m5t6ydaa" path="res://music/Bitcade-Free-SFX-Pack-Vol1/WAV/Hit/bitcade_hit_sword.wav" id="2_tuyoq"]
 [ext_resource type="Script" uid="uid://fbwie5iyl5bk" path="res://scripts/health.gd" id="3_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://besfmqqv7ye6v" path="res://assets/frames/weapon_rusty_sword.png" id="4_fjrip"]
-[ext_resource type="AudioStream" uid="uid://bumlkpq16ii6r" path="res://music/Bitcade-Free-SFX-Pack-Vol1/WAV/Hit/bitcade_hit_hurt.wav" id="5_qlg0r"]
+[ext_resource type="AudioStream" uid="uid://bnyx120d51fqd" path="res://music/Bitcade-Free-SFX-Pack-Vol1/WAV/Hit/bitcade_hit_defeated.wav" id="5_qlg0r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hqtel"]
 atlas = ExtResource("2_qlg0r")

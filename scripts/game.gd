@@ -41,6 +41,7 @@ const SFX_ENEMY_HURT: Array[AudioStream] = [
 const SFX_ENEMY_DIED: AudioStream = preload("res://music/Minifantasy_Dungeon_SFX/24_orc_death_spin.wav")
 const SFX_PLAYER_DIED: AudioStream = preload("res://music/Minifantasy_Dungeon_SFX/14_human_death_spin.wav")
 const SFX_INTERACT: AudioStream = preload("res://music/Bitcade-Free-SFX-Pack-Vol1/WAV/UI/bitcade_ui_confirm.wav")
+const SFX_HEAL: AudioStream = preload("res://music/Bitcade-Free-SFX-Pack-Vol1/WAV/Power-Up/bitcade_powerup_rise.wav")
 
 
 ## Name the player typed in the lobby panel.

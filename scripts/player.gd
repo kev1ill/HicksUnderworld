@@ -170,7 +170,6 @@ func _end_swing() -> void:
 
 
 func _on_sword_hit(area: Area2D) -> void:
-	Game.play_sfx(player_hurt)
 	# The deflect zone and the hurtbox are both children of what we want to affect.
 	var target := area.get_parent()
 	# Never react to our own hurtbox or anything else belonging to the player.
@@ -185,12 +184,14 @@ func _on_sword_hit(area: Area2D) -> void:
 		return
 	hit_this_swing.append(target)
 	if target.has_method("take_hit"):
+		Game.play_sfx_random(Game.SFX_SWORD_HIT)
 		target.take_hit(weapon_damage, global_position)
 
 
 func take_hit(amount: int, from: Vector2) -> void:
 	if invulnerable or dead:
 		return
+	Game.play_sfx(player_hurt, -10.0)
 	invulnerable = true
 	knockback = from.direction_to(global_position) * 160.0
 	sprite.modulate = Color(1, 0.3, 0.3)
