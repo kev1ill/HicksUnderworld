@@ -35,16 +35,16 @@ func _ready() -> void:
 		
 		"Dungeon3": #Level 3: Bigger Waves and boss foused
 			waves = [
-				[[goblin, 5]],                                              # 1
-				[[goblin, 6], [masked_orc, 1]],                             # 2  reward
-				[[goblin, 5], [masked_orc, 3]],                             # 3
-				[[goblin, 4], [masked_orc, 4], [orc_warrior, 1]],           # 4
-				[[goblin, 3], [masked_orc, 4], [orc_warrior, 2]],           # 5  reward
-				[[masked_orc, 4], [orc_warrior, 2], [orc_shaman, 1]],                        # 6
-				[[goblin, 5], [masked_orc, 4], [orc_warrior, 3]],           # 7  reward
-				[[masked_orc, 4], [orc_warrior, 2], [orc_shaman, 2]],                        # 8
-				[[goblin, 4], [masked_orc, 5], [orc_warrior, 4], [orc_shaman, 1]],           # 9
-				[[masked_orc, 6], [orc_warrior, 4]],   
+				[[goblin, 20]],                                              # 1
+				[[goblin, 24], [masked_orc, 4]],                             # 2  reward
+				[[goblin, 20], [masked_orc, 12]],                             # 3
+				[[goblin, 16], [masked_orc, 16], [orc_warrior, 6]],           # 4
+				[[goblin, 12], [masked_orc, 16], [orc_warrior, 12]],           # 5  reward
+				[[masked_orc, 16], [orc_warrior, 8], [orc_shaman, 3]],                        # 6
+				[[goblin, 20], [masked_orc, 16], [orc_warrior, 12], [orc_shaman, 2]],           # 7  reward
+				[[masked_orc, 16], [orc_warrior, 8], [orc_shaman, 6]],                        # 8
+				[[goblin, 20], [masked_orc, 20], [orc_warrior, 16], [orc_shaman, 4]],           # 9
+				[[masked_orc, 24], [orc_warrior, 16], [orc_shaman, 8]],   
 		] 
 		
 		# Level 2: bigger waves, orcs from wave 2, warriors and shamans
