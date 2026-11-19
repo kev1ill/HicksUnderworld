@@ -105,7 +105,7 @@ func _physics_process(delta: float) -> void:
 
 func _update_interaction(busy: bool) -> void:
 	var target := _current_target()
-	if not is_instance_valid(_hud):
+	if not is_instance_valid(_hud) and get_parent().name.substr(0, 7) != "Dungeon":
 		_hud = get_tree().get_first_node_in_group("hud")
 	if _hud:
 		_hud.set_prompt(target.prompt if target and not busy else "")
