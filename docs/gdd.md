@@ -1,5 +1,4 @@
 # Game Design Document (GDD)
-### Team's Project Template
 
 ## 1. Game Concept
 
@@ -9,7 +8,7 @@
 
 **Platform(s):**  PC
 
-**Elevator Pitch (1-2 sentences):** A desperate Kalamazoo College student descends into the secret underground beneath Hicks Center in search of the legendary K-cash, only to uncover the weirdest, funniest, and most chaotic secrets the campus has been hiding for years. 
+**Elevator Pitch:** A desperate Kalamazoo College student descends into the secret underground beneath Hicks Center in search of the legendary K-cash, only to uncover the weirdest, funniest, and most chaotic secrets the campus has been hiding for years. 
 
 **Target Audience:** Kalamazoo College Students and gamers who enjoy a difficult, Roguelike experience.
 
@@ -49,7 +48,7 @@ A broke Kalamazoo College student ventures into the secret underground beneath H
 
 **Main Characters:**
 
-Dungeon raider (player), The Guardians of Hicks (enemies)
+K Student (player), The Guardians of Hicks (enemies)
 
 **Conflict/Goal (What drives the player?):**
 
