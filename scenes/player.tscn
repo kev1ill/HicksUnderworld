@@ -3,8 +3,10 @@
 [ext_resource type="Script" uid="uid://bmfkwd7x8jh7u" path="res://scripts/player.gd" id="1_dqkch"]
 [ext_resource type="Texture2D" uid="uid://pklclnt7egjt" path="res://assets/Player.png" id="2_qlg0r"]
 [ext_resource type="Resource" uid="uid://csbp16klg2v7t" path="res://resources/rusty_sword.tres" id="2_tuyoq"]
+[ext_resource type="AudioStream" uid="uid://yor1m5t6ydaa" path="res://music/Bitcade-Free-SFX-Pack-Vol1/WAV/Hit/bitcade_hit_sword.wav" id="2_tuyoq"]
 [ext_resource type="Script" uid="uid://fbwie5iyl5bk" path="res://scripts/health.gd" id="3_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://besfmqqv7ye6v" path="res://assets/frames/weapon_rusty_sword.png" id="4_fjrip"]
+[ext_resource type="AudioStream" uid="uid://bumlkpq16ii6r" path="res://music/Bitcade-Free-SFX-Pack-Vol1/WAV/Hit/bitcade_hit_hurt.wav" id="5_qlg0r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hqtel"]
 atlas = ExtResource("2_qlg0r")
@@ -340,6 +342,8 @@ script = ExtResource("1_dqkch")
 invulnerable_time = 0.5
 up_swing_lift = 5.0
 starting_weapon = ExtResource("2_tuyoq")
+swing_sound = ExtResource("2_tuyoq")
+player_hurt = ExtResource("5_qlg0r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=956184766]
 sprite_frames = SubResource("SpriteFrames_ik31s")

@@ -247,6 +247,7 @@ agent_radius = 11.0
 [node name="Dungeon2" type="Node2D" unique_id=1390571155]
 y_sort_enabled = true
 script = ExtResource("1_77ye7")
+next_level_scene = "res://scenes/dungeon3.tscn"
 level_title = "LEVEL 2 - THE DEEP HALLS"
 
 [node name="Floor" type="TileMapLayer" parent="." unique_id=197655762]
@@ -309,6 +310,7 @@ grow_horizontal = 2
 theme_override_fonts/font = ExtResource("9_4peiy")
 theme_override_font_sizes/font_size = 8
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="SpawnPoints" type="Node2D" parent="." unique_id=1255778375]
 

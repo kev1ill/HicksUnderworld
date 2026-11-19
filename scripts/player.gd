@@ -13,6 +13,11 @@ extends CharacterBody2D
 @export var combat_enabled := true
 #how many pixels higher the sword pivot sits when attacking upwards
 @export var up_swing_lift: float = 10.0
+#SFX for sword swing 
+@export var swing_sound: AudioStream
+#SFX for player getting hit 
+@export var player_hurt: AudioStream
+
 
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -136,6 +141,7 @@ func _current_target() -> Interactable:
 
 
 func _attack() -> void:
+	Game.play_sfx_random(Game.SFX_SWING)
 	sword_pivot.position = pivot_home
 	if attack_dir.y < -.5:
 		sword_pivot.position.y -= up_swing_lift
@@ -154,6 +160,8 @@ func _attack() -> void:
 	tween.tween_property(sword_pivot, "rotation", base + swing_arc * sweep, 0.15)
 	tween.tween_callback(_end_swing)
 	get_tree().create_timer(attack_cooldown).timeout.connect(func(): can_attack = true)
+	
+	
 
 
 func _end_swing() -> void:
@@ -162,6 +170,7 @@ func _end_swing() -> void:
 
 
 func _on_sword_hit(area: Area2D) -> void:
+	Game.play_sfx(player_hurt)
 	# The deflect zone and the hurtbox are both children of what we want to affect.
 	var target := area.get_parent()
 	# Never react to our own hurtbox or anything else belonging to the player.
