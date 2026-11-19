@@ -13,6 +13,11 @@ extends CharacterBody2D
 @export var combat_enabled := true
 #how many pixels higher the sword pivot sits when attacking upwards
 @export var up_swing_lift: float = 10.0
+#SFX for sword swing 
+@export var swing_sound: AudioStream
+#SFX for player getting hit 
+@export var player_hurt: AudioStream
+
 
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -105,7 +110,7 @@ func _physics_process(delta: float) -> void:
 
 func _update_interaction(busy: bool) -> void:
 	var target := _current_target()
-	if not is_instance_valid(_hud):
+	if not is_instance_valid(_hud) and get_parent().name.substr(0, 7) != "Dungeon":
 		_hud = get_tree().get_first_node_in_group("hud")
 	if _hud:
 		_hud.set_prompt(target.prompt if target and not busy else "")
@@ -136,6 +141,7 @@ func _current_target() -> Interactable:
 
 
 func _attack() -> void:
+	Game.play_sfx_random(Game.SFX_SWING)
 	sword_pivot.position = pivot_home
 	if attack_dir.y < -.5:
 		sword_pivot.position.y -= up_swing_lift
@@ -154,6 +160,8 @@ func _attack() -> void:
 	tween.tween_property(sword_pivot, "rotation", base + swing_arc * sweep, 0.15)
 	tween.tween_callback(_end_swing)
 	get_tree().create_timer(attack_cooldown).timeout.connect(func(): can_attack = true)
+	
+	
 
 
 func _end_swing() -> void:
@@ -176,12 +184,14 @@ func _on_sword_hit(area: Area2D) -> void:
 		return
 	hit_this_swing.append(target)
 	if target.has_method("take_hit"):
+		Game.play_sfx_random(Game.SFX_SWORD_HIT)
 		target.take_hit(weapon_damage, global_position)
 
 
 func take_hit(amount: int, from: Vector2) -> void:
 	if invulnerable or dead:
 		return
+	Game.play_sfx(player_hurt, -10.0)
 	invulnerable = true
 	knockback = from.direction_to(global_position) * 160.0
 	sprite.modulate = Color(1, 0.3, 0.3)

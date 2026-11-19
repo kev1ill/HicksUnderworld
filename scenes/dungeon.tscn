@@ -199,7 +199,7 @@ tile_set = SubResource("TileSet_ticvn")
 [node name="Player" parent="." unique_id=1753172116 instance=ExtResource("4_jqckn")]
 position = Vector2(8, -9)
 
-[node name="HUD" type="CanvasLayer" parent="." unique_id=321325794]
+[node name="HUD" type="CanvasLayer" parent="." unique_id=321325794 groups=["hud"]]
 script = ExtResource("5_hh3g7")
 full_heart = ExtResource("6_av2vf")
 half_heart = ExtResource("7_6gydx")

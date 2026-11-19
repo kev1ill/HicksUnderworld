@@ -13,6 +13,8 @@ signal all_waves_cleared
 @export var masked_orc: PackedScene
 @export var orc_warrior: PackedScene
 @export var orc_shaman: PackedScene
+@export var zombie_boss: PackedScene
+@export var orge_boss: PackedScene
 @export var spawn_interval: float = 0.5
 #amount of seconds between the round ending and starting
 @export var time_between_waves: float = 5.0
@@ -29,6 +31,22 @@ var spawning := false
 
 func _ready() -> void:
 	match get_parent().name:
+		
+		
+		"Dungeon3": #Level 3: Bigger Waves and boss foused
+			waves = [
+				[[goblin, 5]],                                              # 1
+				[[goblin, 6], [masked_orc, 1]],                             # 2  reward
+				[[goblin, 5], [masked_orc, 3]],                             # 3
+				[[goblin, 4], [masked_orc, 4], [orc_warrior, 1]],           # 4
+				[[goblin, 3], [masked_orc, 4], [orc_warrior, 2]],           # 5  reward
+				[[masked_orc, 4], [orc_warrior, 2], [orc_shaman, 1]],                        # 6
+				[[goblin, 5], [masked_orc, 4], [orc_warrior, 3]],           # 7  reward
+				[[masked_orc, 4], [orc_warrior, 2], [orc_shaman, 2]],                        # 8
+				[[goblin, 4], [masked_orc, 5], [orc_warrior, 4], [orc_shaman, 1]],           # 9
+				[[masked_orc, 6], [orc_warrior, 4]],   
+		] 
+		
 		# Level 2: bigger waves, orcs from wave 2, warriors and shamans
 		"Dungeon2":
 			waves = [
@@ -41,7 +59,7 @@ func _ready() -> void:
 				[[goblin, 5], [masked_orc, 4], [orc_warrior, 3]],           # 7  reward
 				[[masked_orc, 4], [orc_warrior, 2], [orc_shaman, 2]],                        # 8
 				[[goblin, 4], [masked_orc, 5], [orc_warrior, 4], [orc_shaman, 1]],           # 9
-				[[masked_orc, 6], [orc_warrior, 4]],                        # 10 placeholder for the boss
+				[[masked_orc, 6], [orc_warrior, 4], [orc_shaman, 2]],                        # 10 placeholder for the boss
 		]
 			
 		"Dungeon":
