@@ -200,7 +200,7 @@ func _on_died() -> void:
 	
 	#Restart the whole scene from scratch.
 	#get_tree().reload_current_scene()
-	
+	reset_upgrades()
 	Game.go_to(Game.LOBBY, "from_hall")
 
 
@@ -238,3 +238,8 @@ func apply_speed_buff(multiplier: float, duration: float) -> void:
 			speed_buff = 1.0
 			sprite.self_modulate = Color.WHITE
 	)
+	
+# Reset the players weapon and health back to default when they die
+func reset_upgrades() -> void:
+	Game.dungeon_health_bonus = 0
+	Game.dungeon_weapon_index = 0

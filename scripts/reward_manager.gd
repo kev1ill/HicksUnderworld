@@ -20,9 +20,9 @@ func _ready() -> void:
 	match get_parent().name:
 		"Dungeon2": 
 			reward_table = {
-			2: [.8, .1],
-			5: [.7, .2],
-			7: [.8, .1]
+			2: [.85, .15],
+			#5: [.7, .2],
+			#7: [.8, .1]
 		}
 		"Dungeon":
 			reward_table = {
